@@ -6,11 +6,12 @@ window.onload = function(){
   let btnI = document.querySelector('.buttons #I');
 
   btnU.onclick = function(){
-    text.classList.toggle('U');
     DivThrill();
+    text.classList.toggle('U');
   }
 
   btnB.onclick = function(){
+    BoxRandFlash();
     if(text.style.fontWeight !== 'bold'){
       text.style.fontWeight = 'bold';}
     else {
@@ -19,6 +20,7 @@ window.onload = function(){
   }
 
   btnI.onclick = function(){
+    BoxLineFlash();
     let em = document.querySelector('.textarea em');
     let v = 'текст ТЕКСТ';
     if(em !== null){
@@ -29,13 +31,28 @@ window.onload = function(){
     }
   }
   //text section end
-
+  //box section started
+  let bx = document.querySelectorAll('.box');
   function DivThrill(){
-    console.log('thr start');
-    let bx = document.querySelectorAll('.box');
     for(let i of bx){
       i.classList.toggle('box2');
     }
+  }
+
+
+  function BoxRandFlash(){
+      for(let i=0; i< bx.length; i++){
+        let rnum = Math.floor(Math.random() * (bx.length));
+        bx[rnum].classList.toggle('box2');
+        setTimeout(function(){
+          bx[rnum].classList.toggle('box2');
+        }, 500);
+      }
+  }
+
+
+  function BoxLineFlash(){
+
   }
 
 
