@@ -51,8 +51,27 @@ window.onload = function(){
   }
 
 
-  function BoxLineFlash(){
+  /*function BoxLineFlash(){
+    for(let i of bx){
+        i.classList.toggle('box2');
+        setTimeout(function(){
+          i.classList.toggle('box2');
+        }, 1000);
+      }
+  }*/
+  const DEF_DELAY = 1000;
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms || DEF_DELAY));
+  }
+
+  async function BoxLineFlash(){
+    for(let i of bx){
+        i.classList.toggle('box2');
+        await sleep(350);
+        i.classList.toggle('box2');
+
+      }
   }
 
 
