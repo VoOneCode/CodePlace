@@ -1,15 +1,13 @@
 window.onload = function(){
-
+  //text section start
   let text = document.querySelector('.textarea p');
-
-
-
   let btnU = document.querySelector('.buttons #U');
   let btnB = document.querySelector('.buttons #B');
   let btnI = document.querySelector('.buttons #I');
 
   btnU.onclick = function(){
     text.classList.toggle('U');
+    DivThrill();
   }
 
   btnB.onclick = function(){
@@ -21,8 +19,6 @@ window.onload = function(){
   }
 
   btnI.onclick = function(){
-
-
     let em = document.querySelector('.textarea em');
     let v = 'текст ТЕКСТ';
     if(em !== null){
@@ -31,15 +27,16 @@ window.onload = function(){
     }else {
       text.innerHTML = `<em>${v}</em>`;
     }
+  }
+  //text section end
 
-
-
-    //
-    //console.log(t);
-
+  function DivThrill(){
+    console.log('thr start');
+    let bx = document.querySelectorAll('.box');
+    for(let i of bx){
+      i.classList.toggle('box2');
+    }
   }
 
-//let res = `<div>${name} ${lastname} <strong>${avg}</strong></div>`
-//!!обратные кавычки!!
 
 }

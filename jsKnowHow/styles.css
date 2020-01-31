@@ -1,12 +1,6 @@
 
 
-.item{
-	height: 100px;
-	width: 100px;
-	margin: 5px;
-	background: gold;
-	transition: all 1s;
-}
+
 
 .main{
 	background: wheat;
@@ -17,6 +11,27 @@
 	text-decoration: underline;
 }
 
-.B{
-	text-weight: bold;
+.boxes{
+	background: silver;
+
+
+}
+
+.box{
+	float: left;
+	height: 40px;
+	width: 40px;
+	margin: 5px;
+	background: gold;
+	transition: all 1s;
+}
+
+.box2{
+	float: left;
+	height: 60px;
+	width: 60px;
+	margin: 5px;
+	background: green;
+	transition: all 1s;
+	border-radius: 15px;
 }
