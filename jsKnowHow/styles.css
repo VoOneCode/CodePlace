@@ -1,0 +1,22 @@
+
+
+.item{
+	height: 100px;
+	width: 100px;
+	margin: 5px;
+	background: gold;
+	transition: all 1s;
+}
+
+.main{
+	background: wheat;
+	width: 1280px;
+}
+
+.U{
+	text-decoration: underline;
+}
+
+.B{
+	text-weight: bold;
+}
