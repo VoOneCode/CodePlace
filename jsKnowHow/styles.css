@@ -4,7 +4,14 @@
 
 .main{
 	background: wheat;
-	width: 1280px;
+	width: 32rem;
+	margin: 5px;
+	height: 5rem;
+	padding: 0.35rem;
+	box-sizing: border-box;
+}
+
+.main2{
 }
 
 .U{
@@ -12,15 +19,13 @@
 }
 
 .boxes{
-	background: silver;
-
-
+	height: 9rem;
 }
 
 .box{
 	float: left;
-	height: 40px;
-	width: 40px;
+	height: 2.5rem;
+	width: 2.5rem;
 	margin: 5px;
 	background: gold;
 	transition: all 1s;
@@ -34,4 +39,9 @@
 	background: green;
 	transition: all 1s;
 	border-radius: 15px;
+}
+
+.avgField{
+	float: left;
+	margin: 1rem;
 }
