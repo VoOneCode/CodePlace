@@ -1,0 +1,256 @@
+$color: silver;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  position: relative;
+  background: $color;
+  box-shadow: 1px 1px 10px #16B4B4;//, 1px 1px 10px #ccc;
+  //box-shadow: 0 0 10px 0 rgba(255,255,0,0.6), 0 0 6px 0 rgba(255,255,0,0.8), 0 0 10px 0 rgba(255,255,0,0.6);
+  //border: 2px solid black;
+
+  width: 98%;
+  height: 1000px;
+  margin: 5px 5px 5px 5px;
+  h1{
+    font-weight: lighter;
+    transition:all 0.5s ease-in-out;
+  }
+}
+
+#top_pic{
+  background: url("../imgs/header.png");
+  #top_overlay{
+    opacity: 1;
+
+    //background-image: -webkit-linear-gradient(150deg, rgb(196,211,206) 0%, rgb(110,69,226) 100%);
+
+  }
+}
+
+
+
+#container_top{
+  margin: 0 0 0 0;
+  //background-image: -webkit-linear-gradient(150deg, rgb(196,211,296) 0%, rgb(110,69,226) 100%);
+  //opacity: 0.99;
+  padding: 1em;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  #logo_top{
+    flex-grow: 1;
+    a{
+      font-size: 70px;
+      //background-image: -webkit-linear-gradient(150deg, rgb(196,211,296) 0%, rgb(110,69,226) 100%);
+      -webkit-transition:all 0.3s ease-out;
+      color: #ffffff;
+      //color: rgb(196,211,296);
+      font-family: "Mrs Eaves Italic";
+      font-style: italic;
+      text-align: left;
+      &:hover{
+        background: #16B4B4;
+
+        border: 1px solid green;
+        border-radius: 30px;
+        padding: 0 12px;
+        box-shadow: inset rgba(255,255,255,0.2) 8px  8px 18px 5px,
+	                  inset rgba(0,0,0,0.5)      -8px -8px 18px 5px;
+
+        //opacity: 0.4;
+        color: #F9EB2B;
+      }
+  }
+}
+  #content_top{
+    flex-grow: 2;
+    #ul_top{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      li{
+        //flex-basis: 60px;
+        margin: 10px;
+        display:inline-block;
+        color: #F9EB2B;
+        //text-shadow: 1px 4px 10px #fff, 1px 1px 10px #ccc;
+        //text-shadow: 1px 4px 10px yellowgreen, 1px 1px 10px #ccc;
+        text-shadow: 0px 0px 30px white,0px 0px 30px white,0px 0px 30px white,0px 0px 10px #553300,0px 0px 10px #553300;
+        a{
+          color: #F9EB2B;
+          text-shadow: 1px 4px 10px yellowgreen, 1px 1px 10px #ccc;
+          text-decoration: none;
+        }
+      }
+      #gst{
+        flex-basis: 110px;
+        border: 1px solid red;
+        padding: 2px 5px;
+        border-radius: 10px 20px;
+        //text-transform: full-width;
+        //color: blue;
+        text-shadow: 0px 0px 30px aquamarine,0px 0px 30px white,
+        0px 0px 30px white,0px 0px 10px #553300,0px 0px 10px
+        #553300;
+        &:hover{
+          //transform: rotate3d(0, 0, 1, 2deg);
+          transform: translate(-10px, 3%);
+          //transform: rotate(0.5turn);
+          //transform: skew(20deg, 0deg);
+        }
+        >a{
+          &:hover{
+            //color: darken(#F9EB2B, 20%);
+        }}
+      }
+    }
+  }
+}
+
+#additional{
+  background: url("../imgs/header.png");
+  height: auto;
+  padding: 1em;
+  border: 1px dotted yellow;
+  display: flex;
+  justify-content: space-around;
+  >div{
+    height: 100px;
+    width: 100px;
+    font-family: cursive;
+    //background: red;
+  }
+}
+
+#main{
+  height: 100%;
+  background: url('../imgs/main3.jpg');
+  background-size: cover;
+  #accordion{
+    background: #4B8086;
+    opacity: .9;
+    h3{
+      color: #F9EB2B;
+      cursor: nesw-resize;
+      margin-left: .2em;
+    }
+    p{
+      margin-left: 1em;
+      color: $color;
+    }
+    ul li{
+      margin-left: 2em;
+      list-style-type: circle;
+      color: $color;
+    }
+  }
+}
+
+img{
+  height: 100px;
+}
+
+footer{
+  background: green;
+  width: 100%;
+  height: auto;
+  #footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background: url("../imgs/header.png");
+
+  }
+}
+
+
+//rotator
+label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: inline;
+    width: auto;
+    height: auto;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: alias;
+}
+
+.card {
+    width: auto;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 1000ms;
+    //z-index: 200;
+}
+
+    .card div {
+        margin: 1em 1em 1em 1em;
+        padding: 1em;
+        background: green; ///FFF
+        text-align: left;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: visible;
+        border-radius: 2em;
+    }
+
+    .card .back {
+        background: #222;
+        color: #FFF;
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+
+label:hover .card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+input {
+    display: none;
+}
+
+:checked + .card {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
+
+//RC photo
+
+#rc_preview{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+  justify-content: flex-start;
+
+  >img{
+    height: 3em;
+    margin-right: 0.5em;
+  }
+}
+
+#rc_large{
+  padding: 1em;
+  text-align: center;
+  >img{
+    height: 10em;
+    border-radius: 2em;
+  }
+}
+/*# sourceMappingURL=style.min.css.map */
