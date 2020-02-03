@@ -1,0 +1,27 @@
+in js directory
++ editing by .style
++ editing by classList.toggle
++ editing by adding tag to html
++ querySelector
++ замыкание
++ setInterval
++ Math
++ async function
+
+
+in mySite directory
++ HTML
++ CSS
++ preprocessor SCSS
++ Flexbox
++ Gulp
++ jQuery
++ jQueryUI
++ Animation via CSS
++ text shadow
+
+
+in workpieces
++ callback
++ DOM
++ setTimeout
