@@ -59,11 +59,11 @@ function Stars(rowX, rowY, stepX, stepY){
 };
 };
 
-function SmallBear(){
+/*function SmallBear(){
   ctx.save();
-  ctx.rotate(-20*degree)
-  let sX = 130,
-      sY = 500;
+  //ctx.rotate(-20*degree)
+  let sX = 530,
+      sY = 350;
   ctx.strokeStyle = 'blue';
   ctx.fillStyle = 'white';
   ctx.beginPath();
@@ -72,6 +72,7 @@ function SmallBear(){
   ctx.lineTo(sX, sY+90);
   ctx.lineTo(sX+50, sY+80);
   ctx.lineTo(sX, sY);
+  //изонуть ручку
   ctx.lineTo(sX-10, sY-120);
   ctx.closePath();
   ctx.stroke();
@@ -81,7 +82,81 @@ function SmallBear(){
   BigStars(sX, sY+90);
   BigStars(sX+50, sY+80);
   BigStars(sX-10, sY-120);
-  ctx.restore();
+  //ctx.restore();
+};*/
+
+function SmallBear(){
+  ctx.save();
+  //ctx.rotate(-20*degree)
+  let sX = 530,
+      sY = 350;
+  ctx.strokeStyle = 'blue';
+  ctx.fillStyle = 'white';
+  ctx.beginPath();
+  ctx.moveTo(sX, sY);
+  ctx.lineTo(sX-45, sY-20);
+  ctx.lineTo(sX-60, sY+85);
+  ctx.lineTo(sX-10, sY+80);
+  ctx.lineTo(sX, sY);
+  //изонуть ручку
+  ctx.lineTo(sX+20, sY-70);
+  ctx.lineTo(sX+45, sY-100);
+  ctx.lineTo(sX+70, sY-110);
+  ctx.stroke();
+  ctx.closePath();
+
+  BigStars(sX, sY);
+  BigStars(sX-45, sY-20);
+  BigStars(sX-60, sY+85);
+  BigStars(sX-10, sY+80);
+  BigStars(sX+20, sY-70);
+  BigStars(sX+45, sY-100);
+  BigStars(sX+70, sY-110);
+  //ctx.restore();
+};
+
+function Dragon(){
+  let sX = 650,
+      sY = 550;
+  ctx.strokeStyle = 'blue';
+  ctx.fillStyle = 'white';
+  ctx.beginPath();
+  ctx.moveTo(sX, sY);
+  ctx.lineTo(sX-50, sY-10);
+  ctx.lineTo(sX-160, sY+10);
+  ctx.lineTo(sX-230, sY-45);
+  ctx.lineTo(sX-250, sY-80);
+  ctx.lineTo(sX-240, sY-110);
+  ctx.lineTo(sX-230, sY-230);
+  ctx.lineTo(sX-200, sY-310);
+  ctx.lineTo(sX-180, sY-340);
+  ctx.lineTo(sX-200, sY-366);
+  ctx.lineTo(sX-220, sY-350);
+  ctx.lineTo(sX-270, sY-345);
+  ctx.lineTo(sX-300, sY-260);
+  ctx.lineTo(sX-330, sY-265);
+  ctx.lineTo(sX-325, sY-245);
+  ctx.lineTo(sX-310, sY-247);
+  ctx.lineTo(sX-300, sY-260);
+  ctx.stroke();
+  ctx.closePath();
+
+  BigStars(sX, sY);
+  BigStars(sX-50, sY-10);
+  BigStars(sX-160, sY+10);
+  BigStars(sX-230, sY-45);
+  BigStars(sX-250, sY-80);
+  BigStars(sX-240, sY-110);
+  BigStars(sX-230, sY-230);
+  BigStars(sX-200, sY-310);
+  BigStars(sX-180, sY-340);
+  BigStars(sX-200, sY-366);
+  BigStars(sX-220, sY-350);
+  BigStars(sX-270, sY-345);
+  BigStars(sX-300, sY-260);
+  BigStars(sX-330, sY-265);
+  BigStars(sX-325, sY-245);
+  BigStars(sX-310, sY-247);
 };
 
 function BigStars(sX, sY){
@@ -94,3 +169,4 @@ function BigStars(sX, sY){
 Moon(29, 290, 90);
 Stars(-2, -165, 35, 35);
 SmallBear();
+Dragon();
