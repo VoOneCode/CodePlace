@@ -25,3 +25,16 @@ in workpieces
 + callback
 + DOM
 + setTimeout
+
+in canvaScript
++ context.getImageData
++ context.putImageData
++ context.lineWidth
++ context save/restore
++ context.createLinearGradient
++ context.strokeStyle
++ context.fillStyle
++ context Shadow&Blur
++ context.fillText
++ context.arc
++ context activity with lines
