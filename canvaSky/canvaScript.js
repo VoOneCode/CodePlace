@@ -1,21 +1,41 @@
-
+window.onload = function(){
 let
   canv = document.querySelector('#canvas'),
   ctx = canv.getContext('2d');
-
-
-
   degree = Math.PI / 180;
 
 canv.height = window.innerHeight;
 canv.width = window.innerWidth;
 
+window.onresize = function(){
+  let data = ctx.getImageData(0, 0, canv.width, canv.height);
+  canv.height = window.innerHeight;
+  canv.width = window.innerWidth;
+  ctx.putImageData(data, 0, 0);
+}
+
 ctx.fillStyle = 'wheat';
-ctx.strokeStyle= 'white';
+ctx.strokeStyle = 'white';
+ctx.lineWidth = 0.6;
 
 ctx.save();
 
-//moon. add correct to positioning it
+function TopText(){
+  let color_grad = ctx.createLinearGradient(100, 30, 300, 30);
+  color_grad.addColorStop(0, 'green');
+  color_grad.addColorStop(0.5, 'blue');
+  color_grad.addColorStop(1, 'wheat');
+  ctx.fillStyle = color_grad;
+  ctx.font = '30px Georgia';
+  ctx.shadowOffsetX = 0;
+  ctx.shadowOffsetY = 0;
+  ctx.shadowBlur = 15;
+  ctx.shadowColor = 'gold';
+  ctx.fillText('StarSky by VoOne', 100, 30);
+};
+
+
+//moon. add corrections to positioning it. Done by rotate.
 function Moon(r, st_ecl, end_ecl){
   let radius = r || 22,
       start_eclipse = st_ecl || 0.01;
@@ -59,32 +79,6 @@ function Stars(rowX, rowY, stepX, stepY){
 };
 };
 
-/*function SmallBear(){
-  ctx.save();
-  //ctx.rotate(-20*degree)
-  let sX = 530,
-      sY = 350;
-  ctx.strokeStyle = 'blue';
-  ctx.fillStyle = 'white';
-  ctx.beginPath();
-  ctx.moveTo(sX, sY);
-  ctx.lineTo(sX-35, sY+30);
-  ctx.lineTo(sX, sY+90);
-  ctx.lineTo(sX+50, sY+80);
-  ctx.lineTo(sX, sY);
-  //изонуть ручку
-  ctx.lineTo(sX-10, sY-120);
-  ctx.closePath();
-  ctx.stroke();
-
-  BigStars(sX, sY);
-  BigStars(sX-35, sY+30);
-  BigStars(sX, sY+90);
-  BigStars(sX+50, sY+80);
-  BigStars(sX-10, sY-120);
-  //ctx.restore();
-};*/
-
 function SmallBear(){
   ctx.save();
   //ctx.rotate(-20*degree)
@@ -98,13 +92,15 @@ function SmallBear(){
   ctx.lineTo(sX-60, sY+85);
   ctx.lineTo(sX-10, sY+80);
   ctx.lineTo(sX, sY);
-  //изонуть ручку
-  ctx.lineTo(sX+20, sY-70);
+  //curving the handle
+  ctx.bezierCurveTo(sX+20, sY-70, sX+45, sY-100, sX+70, sY-110);
+  //those without curving
+  /*ctx.lineTo(sX+20, sY-70);
   ctx.lineTo(sX+45, sY-100);
-  ctx.lineTo(sX+70, sY-110);
+  ctx.lineTo(sX+70, sY-110);*/
   ctx.stroke();
   ctx.closePath();
-
+  //call function BigStars to mark main stars
   BigStars(sX, sY);
   BigStars(sX-45, sY-20);
   BigStars(sX-60, sY+85);
@@ -170,3 +166,5 @@ Moon(29, 290, 90);
 Stars(-2, -165, 35, 35);
 SmallBear();
 Dragon();
+TopText();
+}
