@@ -1,3 +1,5 @@
+***Noted only unique features***
+
 in js directory
 + editing by .style
 + editing by classList.toggle
@@ -38,3 +40,10 @@ in canvaScript
 + context.fillText
 + context.arc
 + context activity with lines
+
+in WebGL_universus
++ WebGL
++ three.js
++ OrbitControls
++ Object3D
++ some matan
