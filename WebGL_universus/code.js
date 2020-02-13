@@ -31,7 +31,18 @@ window.onload = function(){
   const orbit = new THREE.OrbitControls(camera);
   //setUp end
 
-  //stars create
+  //BUTTONS start
+  btn_earth = document.querySelector('#btn_earth');
+  btn_earth.addEventListener('click', function(){
+    setInterval(function(){
+      //camera.position.set(sun.position.x,sun.position.y,sun.position.z+60);
+      console.log('setint');
+      //camera.lookAt(earth.position.x,earth.position.y,earth.position.z);
+    }, 1);
+  })
+  //BUTTONS end
+
+  //stars create begin
   let stars_geometry = new THREE.Geometry();
   let stars_material = new THREE.PointsMaterial({color:0xbbbbbb,
     opacity:0.8,size:1,sizeAttenuation:false});
@@ -46,61 +57,49 @@ window.onload = function(){
   let stars = new THREE.Points(stars_geometry, stars_material);
   stars.scale.set(50, 50, 50);
   scene.add(stars);
-  //stars create
+  //stars create finish
 
-
-
-
-  //create planets start
+  //create planets begin
 
   let Planet = function(radius, texture){
     this.radius = radius;
     this.texture = texture;
     this.init = function(){
       let g = new THREE.SphereBufferGeometry(this.radius, 40, 40);
-      let t = THREE.ImageUtils.loadTexture(this.texture);
+      let t = new THREE.TextureLoader().load(this.texture);
       t.anisotropy = 8;
       let m = new THREE.MeshStandardMaterial({map: t});
       let mesh = new THREE.Mesh(g, m);
       mesh.castShadow = true;
-
       return mesh;
     }
   }
+  //SUN
   let sun_geometry = new THREE.SphereGeometry(100, 40, 40);
   let sun_texture = new THREE.TextureLoader().load('imgs/sun.jpg');
   let sun_material = new THREE.MeshBasicMaterial({map: sun_texture});
   let sun = new THREE.Mesh(sun_geometry, sun_material);
   sun.position.set(0, 0, 0);
   scene.add(sun);
+  //SUN
+
+  //Planets
 
   let mercury = new Planet(10, 'imgs/2k_mercury.jpg').init();
-  /*let mercury_geometry = new THREE.SphereBufferGeometry(10, 40, 40);
-  let mercury_texture = new THREE.TextureLoader().load('imgs/2k_mercury.jpg');
-  let mercury_material = new THREE.MeshBasicMaterial({map: mercury_texture});
-  let mercury = new THREE.Mesh(mercury_geometry, mercury_material);
-  mercury.position.set(150, 0, 0); //-150*/
   scene.add(mercury);
 
-
-  //EARTH & SATELLITE & MOON - START
+  //EARTH & SATELLITE & MOON - BEGIN
 
   let earth = new Planet(20, 'imgs/8k_earth_daymap.jpg').init();
-  /*let earth_geometry = new THREE.SphereBufferGeometry(20, 40, 40);
-  let earth_texture = new THREE.TextureLoader().load('imgs/8k_earth_daymap.jpg');
-  let earth_material = new THREE.MeshStandardMaterial({map: earth_texture});
-  let earth = new THREE.Mesh(earth_geometry, earth_material);
-  //earth.position.set(240, -50, 150);
-  earth.castShadow = true;*/
+  //earth.position.set(540, -200, 300);
   scene.add(earth);
 
   //moon start
-  let moon_geometry = new THREE.SphereBufferGeometry(3, 10, 10);
-  let moon_texture = new THREE.TextureLoader().load('imgs/8k_moon.jpg');
-  let moon_material = new THREE.MeshStandardMaterial({map: moon_texture});
-  let moon = new THREE.Mesh(moon_geometry, moon_material);
-  moon.castShadow = true;
-  scene.add(moon);
+  let moon = new Planet(3, 'imgs/8k_moon.jpg').init();
+  let moon_axis = new THREE.Object3D();
+  moon_axis.add(moon);
+  moon.position.set(45, 0, 0);
+  scene.add(moon_axis);
 
   //satellite start
   let satellite_geometry = new THREE.Geometry();
@@ -119,23 +118,15 @@ window.onload = function(){
   satellite.castShadow = true;
   scene.add(satellite);
   //satellite end
+
   //EARTH & SATELLITE & MOON - END
 
   let venus = new Planet(15, 'imgs/2k_venus_surface.jpg').init();
-  /*let venus_geometry = new THREE.SphereGeometry(15, 40, 40);
-  let venus_texture = new THREE.TextureLoader().load('imgs/2k_venus_surface.jpg');
-  let venus_material = new THREE.MeshBasicMaterial({map: venus_texture});
-  let venus = new THREE.Mesh(venus_geometry, venus_material);
-  venus.position.set(-210, 0, 0);*/
   scene.add(venus);
 
 
   //saturn & ring - start
   let saturn = new Planet(30, 'imgs/2k_saturn.jpg').init();
-  /*let saturn_geometry = new THREE.SphereBufferGeometry(30, 40, 40);
-  let saturn_texture = new THREE.TextureLoader().load('imgs/2k_saturn.jpg');
-  let saturn_material = new THREE.MeshBasicMaterial({map: saturn_texture});
-  let saturn = new THREE.Mesh(saturn_geometry, saturn_material);*/
   scene.add(saturn);
 
   let saturn_ring_geometry = new THREE.Geometry();
@@ -155,26 +146,33 @@ window.onload = function(){
   //saturn & ring -end
   //create planets end
 
-  //rotate planets
-  function rotate(){
-  }
 
-  let t = 0;
+
+
+
+  scene.fog=new THREE.Fog( 0x000000, 0.015, 3000 );
+
+
+
   //show on screen
+  let t = 0;
   function animate(){
     requestAnimationFrame(animate);
-
-
 
     earth.position.x = Math.sin(t*0.25)*240;
     earth.position.z = Math.cos(t*0.25)*240;
 
+    moon_axis.position.x = earth.position.x;
+    moon_axis.position.y = earth.position.y;
+    moon_axis.position.z = earth.position.z;
+    moon_axis.rotation.z += 0.01;
+
+    moon.rotation.y += 0.05;
+
     satellite.position.x =  earth.position.x;
     satellite.position.z =  earth.position.z;
 
-    moon.position.x =  earth.position.x+25;
-    moon.position.z =  earth.position.z+25;
-
+    //need to some tune it
     light.position.x = Math.sin(t*0.25)*-180;
     light.position.z = Math.cos(t*0.25)*-180;
 
@@ -205,6 +203,10 @@ window.onload = function(){
     camera.lookAt(sun.position);*/
 
     orbit.update();
+    //camera.position.set(earth.position.x,earth.position.y,earth.position.z-150);
+    //console.log(camera.position.z);
+    //camera.lookAt(earth.position.x,earth.position.y,earth.position.z);
+
     renderer.render(scene, camera);
   };
 
