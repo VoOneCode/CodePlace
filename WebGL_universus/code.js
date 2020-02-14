@@ -19,8 +19,8 @@ window.onload = function(){
   light2 = new THREE.AmbientLight(0x222222);
   scene.add(light2);
 
-  var light = new THREE.SpotLight( 0xffffff, 1.5, 2000 );
-  light.position.set(101, 0, 0);
+  var light = new THREE.PointLight( 0xffffff, 1.5, 3000 );
+  light.position.set(0, 0, 0);
   light.castShadow = true;
   light.shadow.mapSize.width = 2048;
   light.shadow.mapSize.height = 2048;
@@ -59,6 +59,8 @@ window.onload = function(){
   scene.add(stars);
   //stars create finish
 
+  //DirectionalLight comet ...
+
   //create planets begin
 
   let Planet = function(radius, texture){
@@ -88,10 +90,12 @@ window.onload = function(){
   let mercury = new Planet(10, 'imgs/2k_mercury.jpg').init();
   scene.add(mercury);
 
+  let venus = new Planet(15, 'imgs/2k_venus_surface.jpg').init();
+  scene.add(venus);
+
   //EARTH & SATELLITE & MOON - BEGIN
 
   let earth = new Planet(20, 'imgs/8k_earth_daymap.jpg').init();
-  //earth.position.set(540, -200, 300);
   scene.add(earth);
 
   //moon start
@@ -121,12 +125,14 @@ window.onload = function(){
 
   //EARTH & SATELLITE & MOON - END
 
-  let venus = new Planet(15, 'imgs/2k_venus_surface.jpg').init();
-  scene.add(venus);
+  let mars = new Planet(13, 'imgs/2k_mars.jpg').init();
+  scene.add(mars);
 
+  let jupiter = new Planet(60, 'imgs/8k_jupiter.jpg').init();
+  scene.add(jupiter);
 
   //saturn & ring - start
-  let saturn = new Planet(30, 'imgs/2k_saturn.jpg').init();
+  let saturn = new Planet(40, 'imgs/2k_saturn.jpg').init();
   scene.add(saturn);
 
   let saturn_ring_geometry = new THREE.Geometry();
@@ -144,13 +150,23 @@ window.onload = function(){
   scene.add(ring);
 
   //saturn & ring -end
+
+  let uranus = new Planet(30, 'imgs/uranus.jpg').init();
+  scene.add(uranus);
+
+  let neptune = new Planet(32, 'imgs/2k_neptune.jpg').init();
+  scene.add(neptune);
+
+  let pluton = new Planet(10, 'imgs/pluton.jpg').init();
+  scene.add(pluton);
+
   //create planets end
 
 
 
 
 
-  scene.fog=new THREE.Fog( 0x000000, 0.015, 3000 );
+  scene.fog=new THREE.Fog( 0x000000, 0.015, 10000 );
 
 
 
@@ -159,31 +175,41 @@ window.onload = function(){
   function animate(){
     requestAnimationFrame(animate);
 
-    earth.position.x = Math.sin(t*0.25)*240;
-    earth.position.z = Math.cos(t*0.25)*240;
+    mercury.position.x = Math.sin(t*0.09)*150;
+    mercury.position.z = Math.cos(t*0.09)*150;
+
+    venus.position.x = Math.sin(t*0.12)*300;
+    venus.position.z = Math.cos(t*0.12)*300;
+
+    earth.position.x = Math.sin(t*0.25)*440;
+    earth.position.z = Math.cos(t*0.25)*440;
 
     moon_axis.position.x = earth.position.x;
     moon_axis.position.y = earth.position.y;
     moon_axis.position.z = earth.position.z;
     moon_axis.rotation.z += 0.01;
-
     moon.rotation.y += 0.05;
 
     satellite.position.x =  earth.position.x;
     satellite.position.z =  earth.position.z;
 
-    //need to some tune it
-    light.position.x = Math.sin(t*0.25)*-180;
-    light.position.z = Math.cos(t*0.25)*-180;
+    mars.position.x = Math.sin(t*0.27)*640;
+    mars.position.z = Math.cos(t*0.27)*640;
 
-    mercury.position.x = Math.sin(t*0.09)*150;
-    mercury.position.z = Math.cos(t*0.09)*150;
+    jupiter.position.x = Math.sin(t*0.3)*860;
+    jupiter.position.z = Math.cos(t*0.3)*860;
 
-    venus.position.x = Math.sin(t*0.09)*200;
-    venus.position.z = Math.cos(t*0.09)*200;
+    saturn.position.x = Math.sin(t*0.09)*1080;
+    saturn.position.z = Math.cos(t*0.09)*1080;
 
-    saturn.position.x = Math.sin(t*0.09)*430;
-    saturn.position.z = Math.cos(t*0.09)*430;
+    uranus.position.x = Math.sin(t*0.15)*1280;
+    uranus.position.z = Math.cos(t*0.15)*1280;
+
+    neptune.position.x = Math.sin(t*0.4)*1380;
+    neptune.position.z = Math.cos(t*0.4)*1380;
+
+    pluton.position.x = Math.sin(t*0.15)*1680;
+    pluton.position.z = Math.cos(t*0.15)*1680;
 
     ring.position.x = saturn.position.x;
     ring.position.z = saturn.position.z;
@@ -191,11 +217,19 @@ window.onload = function(){
     //t += Math.PI/180*2-0.03;
     t += 0.005;
 
-    earth.rotation.y += 0.01;
-    satellite.rotation.x += 0.05;
-    venus.rotation.y += 0.03;
     mercury.rotation.y += 0.05;
+    venus.rotation.y += 0.03;
+    earth.rotation.y += 0.01;
+    mars.rotation.y += 0.01;
+    jupiter.rotation.y += 0.03;
     saturn.rotation.y -= 0.01;
+    uranus.rotation.y -= 0.05;
+    neptune.rotation.y -= 0.06;
+    pluton.rotation.y -= 0.09;
+
+    satellite.rotation.x += 0.05;
+
+
     ring.rotation.y += 0.01;
 
     /*camera.position.x = earth.position.x;
