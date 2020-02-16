@@ -8,7 +8,7 @@ window.onload = function(){
   scene = new THREE.Scene();
 
   camera = new THREE.PerspectiveCamera(60, width/height, 1, 4000);
-  camera.position.set(300, 0, -350);
+  camera.position.set(-600, 400, -550);
 
   renderer = new THREE.WebGLRenderer({physicallyCorrectLights : true, canvas:canvas, antialias:true});
   renderer.setSize(width, height);
@@ -171,7 +171,14 @@ window.onload = function(){
 
 
   //show on screen
+  //
   let t = 0;
+
+  /*var axis = new THREE.Vector3( 0, 3, 0 );
+  let rotation_speed = 0.00001;
+  var quaternion = new THREE.Quaternion;*/
+
+
   function animate(){
     requestAnimationFrame(animate);
 
@@ -184,11 +191,15 @@ window.onload = function(){
     earth.position.x = Math.sin(t*0.25)*440;
     earth.position.z = Math.cos(t*0.25)*440;
 
+    /*camera.position.x = Math.sin(t*0.25)*550;
+    camera.position.z = Math.cos(t*0.25)*550;
+    camera.position.applyQuaternion(quaternion.setFromAxisAngle(axis, rotation_speed));
+    camera.up.applyQuaternion(quaternion.setFromAxisAngle(axis, rotation_speed));*/
+
     moon_axis.position.x = earth.position.x;
     moon_axis.position.y = earth.position.y;
     moon_axis.position.z = earth.position.z;
     moon_axis.rotation.z += 0.01;
-    moon.rotation.y += 0.05;
 
     satellite.position.x =  earth.position.x;
     satellite.position.z =  earth.position.z;
@@ -217,6 +228,7 @@ window.onload = function(){
     //t += Math.PI/180*2-0.03;
     t += 0.005;
 
+    sun.rotation.y += 0.03;
     mercury.rotation.y += 0.05;
     venus.rotation.y += 0.03;
     earth.rotation.y += 0.01;
@@ -237,9 +249,9 @@ window.onload = function(){
     camera.lookAt(sun.position);*/
 
     orbit.update();
-    //camera.position.set(earth.position.x,earth.position.y,earth.position.z-150);
+    //camera.position.set(earth.position.x,earth.position.y,earth.position.z+70);
     //console.log(camera.position.z);
-    //camera.lookAt(earth.position.x,earth.position.y,earth.position.z);
+    //camera.lookAt(moon.position.x,moon.position.y,moon.position.z);
 
     renderer.render(scene, camera);
   };
