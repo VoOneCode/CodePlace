@@ -31,17 +31,6 @@ window.onload = function(){
   const orbit = new THREE.OrbitControls(camera);
   //setUp end
 
-  //BUTTONS start
-  btn_earth = document.querySelector('#btn_earth');
-  btn_earth.addEventListener('click', function(){
-    setInterval(function(){
-      //camera.position.set(sun.position.x,sun.position.y,sun.position.z+60);
-      console.log('setint');
-      //camera.lookAt(earth.position.x,earth.position.y,earth.position.z);
-    }, 1);
-  })
-  //BUTTONS end
-
   //stars create begin
   let stars_geometry = new THREE.Geometry();
   let stars_material = new THREE.PointsMaterial({color:0xbbbbbb,
