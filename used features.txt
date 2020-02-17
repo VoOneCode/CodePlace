@@ -46,4 +46,14 @@ in WebGL_universus
 + three.js
 + OrbitControls
 + Object3D
++ Quaternion
++ Vector3
++ Shadows
 + some matan
+
+in WebGL.Cats.Project
++ OBJLoader.js
++ different types of Light
++ physicallyCorrectLights
++ LoadingManager
++ ImageLoader
