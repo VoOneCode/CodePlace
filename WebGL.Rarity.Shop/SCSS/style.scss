@@ -13,7 +13,7 @@ body{
   margin: 10px;
 }
 
-.item_1, .item_2, .head_wrapper{
+.item_1, .item_2, .item_3, .head_wrapper{
   margin: 10px;
   display: flex;
   justify-content: flex-start;
@@ -34,6 +34,11 @@ body{
 }
 
 .second{
+  width: 420px;
+  height: 420px;
+}
+
+.third{
   width: 420px;
   height: 420px;
 }

@@ -1,3 +1,3 @@
-body{padding:0;margin:0}.body_wrapper{margin:10px;width:100%;height:100%}.canvas{margin:10px}.item_1,.item_2,.head_wrapper{margin:10px;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;flex-wrap:wrap}.head_wrapper>a,footer>h4{margin:5px}.first_text,.second_text{padding-left:20px}.first{width:420px;height:420px}.second{width:420px;height:420px}
+body{padding:0;margin:0}.body_wrapper{margin:10px;width:100%;height:100%}.canvas{margin:10px}.item_1,.item_2,.item_3,.head_wrapper{margin:10px;display:-webkit-box;display:flex;-webkit-box-pack:start;justify-content:flex-start;flex-wrap:wrap}.head_wrapper>a,footer>h4{margin:5px}.first_text,.second_text{padding-left:20px}.first{width:420px;height:420px}.second{width:420px;height:420px}.third{width:420px;height:420px}
 
 /*# sourceMappingURL=style.min.css.map */
