@@ -1,0 +1,199 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.header{
+  position: relative;
+  height: 411px;
+  max-width: 1280px;
+  min-width: 800px;
+  &_row_1{
+    color: #1E90FF;
+    padding-left: 150px;
+    img{
+      width: 25%;
+    }
+  }
+  &_row_2{
+    color: #fff;
+    position: absolute;
+    top: 80px;
+
+    padding-left: 150px;
+    a{
+      color: #fff;
+    }
+  }
+  &_text{
+    color: #fff;
+    position: absolute;
+    top: 200px;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  &__bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 80px;
+    left: 0;
+    z-index: -5;
+    & img{
+      width: 100%;
+    }
+  }
+}
+
+
+
+.main_wrapper{
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow-x: visible;
+}
+
+
+.main_container{
+  max-width: 970px;
+  min-width: 550px;
+}
+
+.orange_card{
+  background-image: url('/imgs/card_orange.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 32%;
+  min-width: 11.9rem;
+  margin-bottom: 1rem;
+}
+
+.blue_card{
+  width: 32%;
+  padding-top: 2.3rem;
+  min-width: 11.9rem;
+  margin-bottom: 1rem;
+}
+
+.btn_LogIn{
+  width: 11rem;
+  color: #FF4500;
+}
+
+.head_text{
+  margin-top: 12rem;
+}
+
+.head_text_line_1{
+  letter-spacing: 0.2rem;
+}
+
+.head_text_line_2{
+  letter-spacing: 0.08rem;
+}
+
+.body_row_1{
+  margin-bottom: 6rem;
+}
+
+
+.card_blue_button{
+  color: white;
+  background: blue;
+  font-size: 1.6rem;
+}
+
+.card_orange_button{
+  color: #FF4500;
+  font-size: 1.6rem;
+}
+
+.card_promo{
+  min-width: 11.9rem;
+  li{
+    font-size: 0.65rem;
+  }
+}
+
+.pic_tv{
+  position: relative;
+  top: -2rem;
+  width: 8rem;
+}
+
+.pic_oper{
+  position: relative;
+  top: -5rem;
+  z-index: 0;
+  width: 9rem;
+}
+
+.pic_router{
+  position: relative;
+  top: -4rem;
+  left: 12rem;
+  width: 10rem;
+}
+
+.card_tv{
+  width: 48%;
+  height: 14rem;
+}
+
+.card_oper{
+  width: 48%;
+  opacity: 0.9;
+}
+
+.card_router{
+  width: 48%;
+  height: 22rem;
+  z-index: -5;
+}
+
+.footer{
+  padding-left: 150px;
+  padding-right: 150px;
+  img{
+    width: 15rem;
+  }
+  li{
+    list-style-type: none;
+    font-size: 0.65rem;
+  }
+}
+
+.body{
+  padding-right: 150px;
+  padding-left: 150px;
+  position: relative;
+  top: -5rem;
+}
+
+@media all and (max-width: 980px) {
+  .pic_tv,.pic_oper,.pic_router{
+    display: none;
+  }
+}
+
+@media all and (max-width: 820px) {
+  .header__bg img{
+    display: none;
+  }
+  .header_row_1{
+    display: flex;
+    flex-direction: column;
+  }
+  .header_row_2{
+    position: relative;
+    top: 0rem;
+    a{
+      color: black;
+    }
+  }
+  .header_text{
+    color: #000;
+    position: relative;
+    top: 0rem;
+  }
+}
