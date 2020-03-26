@@ -5,7 +5,8 @@
             <h2>Развлечения</h2>
             <h4>База отдыха «Приволье» может предложить своим гостям:</h4>
             <pre>
-1) Прогулки по лесу, сбор ягод и грибов, целебных трав.
+1) Прогулки по лесу, сбор 
+   ягод и грибов, целебных трав.
 2) Катание на лыжах.
 3) Катание на снегоходах,квадроциклах.
 4) Детская игровая площадка.
@@ -101,7 +102,7 @@
         max-width: 1000px;
         margin: 0 auto;
         padding: 10px;
-        background: rgba(245, 222, 179, 0.55);
+        background: rgba(245, 222, 179, 0.75);
         color: white;
         padding-bottom: 15px;
         margin-bottom: 1rem;        
@@ -140,19 +141,17 @@
         }    
     }
 
-    @media all and (max-width: 770px){
-                    .gallery{
-                        width: 60%;
-                        margin: 0 auto;
-                        padding: 10px;
-                        background: rgba(245, 222, 179, 0.55);
-                        color: white;
-                        padding-bottom: 15px;
-                        margin-bottom: 1rem; 
+    @media all and (max-width: 700px){
+                    .gallery{                        
+                        width: 95%;
                         &_section_row-item{
-                            width: 90%;
-                            margin: 5px auto;
-                    }
+                            width: 95%;
+                        }    
+                        &_section{ 
+                            >pre{
+                                margin-left: -10px;
+                            }
+                        }
                     }
                 }
 </style>

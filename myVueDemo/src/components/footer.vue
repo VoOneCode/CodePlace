@@ -70,36 +70,21 @@
 	}
 	@media all and (max-width: 700px){
 		footer{
-		.row{
-			display: flex;
-			flex-direction: column;
-			background: maroon;
-			&_elem{
-				color: white;
-				width: 70%;
-				margin: 1rem auto;
+			.row{
 				display: flex;
 				flex-direction: column;
-				justify-content: space-between;
-				img{
-					width: 60%;
-					margin: 0 auto;
-				}
-				a{
-					color: white;
-					text-decoration: none;
-					margin-bottom: 0.7rem;
-					transition: all 0.5s ease-in;
-					&:hover{
-					color: silver;
-					text-decoration: underline;
-					font-size: 17px;
-					top: -2px;
-					transition-duration: 0.3s;
+				flex-wrap: nowrap;
+				&_elem{
+					width: 70%;
+					img{
+						width: 60%;
+						margin: 0 auto;
+					}
+					a{
+						margin-bottom: 0.7rem;
 					}
 				}
 			}
-		}
-		}
+			}
 	}
 </style>

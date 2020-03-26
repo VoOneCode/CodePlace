@@ -90,7 +90,7 @@
         max-width: 1000px;
         margin: 0 auto;
         padding: 10px;
-        background: rgba(245, 222, 179, 0.55);
+        background: rgba(245, 222, 179, 0.75);
         color: white;
         padding-bottom: 15px;
         margin-bottom: 1rem; 
@@ -133,22 +133,14 @@
             }
             } 
     }
-    @media all and (max-width: 770px){
+    @media all and (max-width: 700px){
                 .restik{
-                    width: 60%;
-                    margin: 0 auto;
-                    padding: 10px;
-                    background: rgba(245, 222, 179, 0.55);
-                    color: white;
-                    padding-bottom: 15px;
-                    margin-bottom: 1rem; 
+                    width: 90%;
                     &_section_row-1-item{
-                        width: 90%;
-                        margin: 5px auto;
+                        width: 95%;
                     }
                     &_section_row-2-item{
-                        width: 90%;
-                        margin: 5px auto;
+                        width: 95%;
                     }
                 }
             }    

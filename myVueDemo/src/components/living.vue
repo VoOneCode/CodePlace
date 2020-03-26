@@ -51,7 +51,7 @@
         max-width: 1000px;
         margin: 0 auto;
         padding: 10px;
-        background: rgba(245, 222, 179, 0.55);
+        background: rgba(245, 222, 179, 0.75);
         &_toptext{
             color: black;
         }
@@ -62,5 +62,20 @@
                 width: 33%;
             }
         }
+    }
+    @media all and (max-width: 700px){
+        .living{
+        width: 90%;
+        &_toptext{
+            color: black;
+        }
+        &_row1_pic{
+            display: inline-flex;
+            justify-content: space-between;
+            img{
+                width: 33%;
+            }
+        }
+    }
     }
 </style>
