@@ -12,9 +12,15 @@
             <p>Возле каждого домика установлен мангал</p>
         </div>
         <div class="living_row1_pic">
-            <img src="../../imgs/r1p1.jpg" alt="r1p1">
-            <img src="../../imgs/r1p2.jpg" alt="r1p2">
-            <img src="../../imgs/r1p3.jpg" alt="r1p3">
+            <div class="living_row1_pic-picture">
+                <img src="../../imgs/r1p1.jpg" alt="r1p1">
+            </div>
+            <div class="living_row1_pic-picture">
+                <img src="../../imgs/r1p2.jpg" alt="r1p2">
+            </div>
+            <div class="living_row1_pic-picture">
+                <img src="../../imgs/r1p3.jpg" alt="r1p3">
+            </div>
         </div>
 
         <div class="living_toptext">
@@ -28,9 +34,15 @@
             <p>Возле каждого домика установлен мангал</p>
         </div>
         <div class="living_row1_pic">
-            <img src="../../imgs/r2p1.jpg" alt="r2p1">
-            <img src="../../imgs/r2p2.jpg" alt="r2p2">
-            <img src="../../imgs/r2p3.jpg" alt="r2p3">
+            <div class="living_row1_pic-picture">
+                <img src="../../imgs/r2p1.jpg" alt="r2p1">
+            </div>
+            <div class="living_row1_pic-picture">
+                <img src="../../imgs/r2p2.jpg" alt="r2p2">
+            </div>
+            <div class="living_row1_pic-picture">
+                <img src="../../imgs/r2p3.jpg" alt="r2p3">
+            </div>
         </div>
 	</div>
 </template>
@@ -58,24 +70,17 @@
         &_row1_pic{
             display: inline-flex;
             justify-content: space-between;
-            img{
-                width: 33%;
-            }
+            width: 95%;
+            &-picture{
+                width: 30%;            
+            >img{
+                width: 100%;
+            }}
         }
     }
     @media all and (max-width: 700px){
         .living{
-        width: 90%;
-        &_toptext{
-            color: black;
+            width: 90%;
         }
-        &_row1_pic{
-            display: inline-flex;
-            justify-content: space-between;
-            img{
-                width: 33%;
-            }
-        }
-    }
     }
 </style>
