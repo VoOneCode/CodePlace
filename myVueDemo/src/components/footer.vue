@@ -5,6 +5,16 @@
 				<img src="../../imgs/logo_footer.png" alt="logo_footer">
 			</div>
 			<div class="row_elem">
+				<a id="scroll2bottom" class="scroll" href="#" 
+						v-scroll-to="{el: '#scroll2top',
+                            duration: 2500,
+                            easing: 'easy-in',
+                            offset: -200,
+                            force: true,
+                            cancelable: true,
+                            x: false,
+                            y: true}">НАВЕРХ
+      			</a>
 				<router-link
                 v-for='(item, index) in menuList'
                 :key='index'

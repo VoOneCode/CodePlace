@@ -26,7 +26,6 @@
                 </div>
             </div>   
         </div>
-        *** main __services__ ***
         <div id="main_services" class="main main_services"><h2>К вашим услугам</h2>
             <div class="main_services_row">
                 <router-link
@@ -41,84 +40,7 @@
                     </div>
                 </router-link>  
             </div>
-        </div>
-
-                    <!--div class="main_services_row-item">
-                        <img src="../../imgs/servicesr1p1.jpg" alt="">
-                        <p>Комфортабельные и уютные коттеджи</p>
-                    </!--div>
-                
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr1p2.jpg" alt="">
-                    <p>Ресторан с разнообразным меню</p>
-                </div>
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr1p3.jpg" alt="">
-                    <p>Бар с импортными напитками</p>
-                </div>
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr1p4.jpg" alt="">
-                    <p>Проведение Свадеб и Торжеств</p>
-                </div>
-            </div> 
-            <div class="main_services_row">
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr2p1.jpg" alt="">
-                    <p>Русская баня</p>
-                </div>
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr2p2.jpg" alt="">
-                    <p>Открытый бассейн</p>
-                </div>
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr2p3.jpg" alt="">
-                    <p>Детская площадка</p>
-                </div>
-                <div class="main_services_row-item" id="test">
-                    <img src="../../imgs/servicesr2p4.jpg" alt="">
-                    <p>Развлечения</p>
-                </div>
-            </div>   
-        </div>
-        <!--div-- id="main_services" class="main main_services"><h2>К вашим услугам</h2>
-            <div class="main_services_row">  
-                    <div class="main_services_row-item">
-                        <img src="../../imgs/servicesr1p1.jpg" alt="">
-                        <p>Комфортабельные и уютные коттеджи</p>
-                    </div>
-                
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr1p2.jpg" alt="">
-                    <p>Ресторан с разнообразным меню</p>
-                </div>
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr1p3.jpg" alt="">
-                    <p>Бар с импортными напитками</p>
-                </div>
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr1p4.jpg" alt="">
-                    <p>Проведение Свадеб и Торжеств</p>
-                </div>
-            </div> 
-            <div class="main_services_row">
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr2p1.jpg" alt="">
-                    <p>Русская баня</p>
-                </div>
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr2p2.jpg" alt="">
-                    <p>Открытый бассейн</p>
-                </div>
-                <div class="main_services_row-item">
-                    <img src="../../imgs/servicesr2p3.jpg" alt="">
-                    <p>Детская площадка</p>
-                </div>
-                <div class="main_services_row-item" id="test">
-                    <img src="../../imgs/servicesr2p4.jpg" alt="">
-                    <p>Развлечения</p>
-                </div>
-            </div>   
-        </!--div-->
+        </div>   
     </div>  
 </template>
 
@@ -219,9 +141,6 @@
         
     }
     @media all and (max-width: 700px){
-        .AppHeaderMain{
-            display: block;
-        }
         .serv_item{
         text-decoration: underline;
         color: white;
@@ -241,7 +160,7 @@
         padding-bottom: 15px;
         margin-bottom: 1rem;
         &_text{
-            color: gold;
+            color: black;
         }
         &_benefits{  
             >h2{
