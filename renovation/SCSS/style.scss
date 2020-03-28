@@ -1,0 +1,297 @@
+.carousel {
+  margin: 0 auto;
+  max-width: 700px;
+  min-width: 700px;
+}
+
+.carousel-field{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.main_wrapper{
+  max-width: 1920px;
+  min-width: 750px;
+  margin: 0 auto;
+}
+.header{
+  background-image: url('/imgs/header.png');
+  opacity: 0.9;
+  padding-left: 9rem;
+  padding-right: 9rem;
+  width: 100%;
+}
+
+.head_menu_font{
+  font-size: 1.3rem;
+}
+
+.head__card{
+  background: url('/imgs/blue.jpg');
+  opacity: 0.95;
+  border-radius: 25px;
+  border-width: 1px;
+  box-shadow: 0 0 20px silver;
+  width: 27rem;;
+}
+
+.marginBottom8{
+  margin-bottom: 8rem;
+}
+
+.marginBottom4{
+  margin-bottom: 4rem;
+}
+
+.cardbodymr {
+  margin-right: 3.5rem;
+}
+
+.cardbody{
+  width: 17rem;
+  box-shadow: 1px 0 15px silver;
+}
+
+.cardbody_bordered{
+  border-radius: 25px;
+  border-width: 1px;
+}
+
+.img_bordered_top{
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-width: 0px;
+}
+
+.btn_bg_blue{
+  background: url('/imgs/blue2.jpg');
+  width: 15rem;;
+  opacity: 1;
+  color: white;
+  border-radius: 20px;
+  font-size: 1.5rem;
+}
+
+.btn_bg_gold{
+  background: url('/imgs/gold.jpg');
+  opacity: 1;
+  color: white;
+  border-radius: 20px;
+  font-size: 1.5rem;
+}
+
+.btn_bg_gold_mini{
+  background: url('/imgs/gold.jpg');
+  width: 11rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.45rem;
+  margin-bottom: .45rem;
+  opacity: 1;
+  color: white;
+  border-radius: 20px;
+  font-size: 1.3rem;
+}
+
+.body_card_overlay{
+  height: 8rem;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-width: 0px;
+}
+
+.text_overlay_blue{
+  background: url('/imgs/blue.jpg');
+  opacity: 0.8;
+}
+
+.img_overlay_blue{
+  background: url('/imgs/1.jpg');
+  opacity: 1;
+  box-shadow: 2px 0 45px silver;
+}
+
+.text_overlay_gold{
+  background: url('/imgs/gold.jpg');
+  opacity: 0.8;
+}
+
+.img_overlay_gold{
+  background: url('/imgs/6.jpg');
+  opacity: 1;
+  box-shadow: 2px 0 45px silver;
+}
+
+.body_card_overlay_prorab{
+  height: 5rem;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-width: 0px;
+}
+
+.img_overlay_prorab{
+  background: url('/imgs/7.jpg');
+  opacity: 1;
+  box-shadow: 2px 0 45px silver;
+}
+
+.gold_bordered{
+  border-color: gold;
+  border-radius: 15px;
+  border-width: 1px;
+  border-style: solid;
+  padding: -3;
+}
+
+.font_little{
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 1px;
+  margin-top: 1px;
+  margin-bottom: 2px;
+}
+
+.middle_wrapper{
+  padding-top: 10px;
+  padding-left: 100px;
+}
+
+@media all and (max-width: 1100px){
+  .middle_wrapper{
+    padding-left: 220px;
+  }
+}
+
+.span_services{
+  transform: rotate(270deg);
+  transform-origin: 40% 43%;
+  font-size: 5rem;
+}
+
+.span_projects{
+  transform: rotate(270deg);
+  transform-origin: 37% 45%;
+  font-size: 5rem;
+}
+
+.card_serv_1{
+  margin-left: -290px;
+}
+
+.card_proj_1{
+  margin-left: -350px;
+}
+
+.card_about_1{
+  margin-left: -14.3rem;
+  width: 22.5rem;
+  padding-left: 1rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 15px;
+  border-width: 1px;
+  box-shadow: 0 0 10px silver;
+}
+
+.span_about{
+  transform: rotate(270deg);
+  transform-origin: 30% 70%;
+  font-size: 5rem;
+}
+
+.span_partn{
+  transform: rotate(270deg);
+  transform-origin: 50% 43%;
+  font-size: 5rem;
+}
+
+.card_proj{
+  width: 28rem;
+  margin-top: 1rem;
+}
+
+.body_proj_subwrapper{
+  margin-top: 8rem;
+}
+
+.proj_btn{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card_back{
+  background-image: url('/imgs/card_back.png');
+  background-repeat: no-repeat;
+  opacity: 1;
+  width: 13rem;
+  margin-right: 1rem;
+  margin-left: 0.45rem;
+  margin-top: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.text_transparent{
+  opacity: 0.1;
+  font-size: 4rem;
+}
+
+.body_about_subwrapper{
+  margin-top: 5rem;
+}
+
+.card_about{
+  width: 22.5rem;
+  padding-left: 1rem;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 15px;
+  border-width: 1px;
+  box-shadow: 0 0 10px silver;
+}
+
+.text_close{
+  margin-bottom: -0.3rem;
+}
+
+.petrovich{
+  width: 17.8rem;
+  margin-top: 7rem;
+  box-shadow: 0 0 10px silver;
+  border-radius: 15px;
+  margin-left: -200px;
+}
+
+.btn_bg_blue_mini{
+  background: url('/imgs/blue2.jpg');
+  width: 78%;
+  padding-left: 2.8rem;
+  margin-bottom: 1.2rem;
+  opacity: 1;
+  color: white;
+  border-radius: 20px;
+  font-size: 1.05rem;
+}
+
+.footer{
+  margin-top: 4rem;
+  background-image: url('/imgs/footer2.png');
+  opacity: 1;
+  padding-left: 9rem;
+  padding-right: 9rem;
+}
+
+.footer_middle{
+  width: 28.7rem;
+}
+
+.body_partner_subwrapper{
+  position: relative;
+}
+
+.logo{
+  width: 3rem;
+}

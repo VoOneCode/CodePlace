@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.min.css">   
+    <title></title>
+  </head>
+  <body>
+    <div class="main_wrapper">
+      <div class="header text-white pt-3">
+        <div-- class="container head_blue_filter">
+            <div class="row d-flex justify-content-between align-items-center marginBottom8">
+              <div class="image-parent col-sd-1">
+                <img src="imgs/yacht2.png" alt="" class="logo img-fluid">
+              </div>
+              <div class="head__nav col-sd-9">
+                <ul class="nav d-flex justify-content-between head_menu_font">
+                  <li><a href="" class="nav-item text-white mr-2">Главная</a></li>
+                  <li><a href="" class="nav-item text-white mr-2">Услуги</a></li>
+                  <li><a href="" class="nav-item text-white mr-2">Наши работы</a></li>
+                  <li><a href="" class="nav-item text-white mr-2">Новости</a></li>
+                  <li><a href="" class="nav-item text-white mr-2">О нас</a></li>
+                  <li><a href="" class="nav-item text-white mr-2">Контакты</a></li>
+                </ul>
+              </div>
+              <div class="head__phones col-sd-2">
+                <p>+7 <big>(999)</big> 1-11-11</p>
+                <p>+7 <big>(999)</big> 1-11-11</p>
+              </div>
+            </div>
+          <div class="row d-flex justify-content-between align-items-center marginBottom4">
+            <div class="col-6 headMiddleText border-right">
+              <p class="text-center ">
+                <h1>Ремонт квартир в viceDefaultCity от компании "Мичман Проект"</h2>
+              </p>
+            </div>
+            <div class="card p-3 head__card">
+              <div class="head__card__body">
+                <h4 class="card-title text-center">Онлайн-калькуляция стоимости ремонта помещения</h3>
+                  <div class="row mt-5 mb-5 d-flex justify-content-around">
+                    <select class="
+                        col-5 custom-select bg-transparent
+                        border-left-0 border-top-0 border-right-0
+                        text-white" name="">
+                      <option class="text-dark" selected value="1">КВАРТИРА</option>
+                      <option class="text-dark" value="2">ДОМ</option>
+                    </select>
+                    <select class="
+                        col-5 custom-select bg-transparent
+                        border-left-0 border-top-0 border-right-0
+                        text-white" name="">
+                      <option class="text-dark" selected value="1">1КОМНАТА</option>
+                      <option class="text-dark" value="0">СТУДИЯ</option>
+                      <option class="text-dark" value="2">2КОМНАТЫ</option>
+                      <option class="text-dark" value="3">3КОМНАТЫ</option>
+                    </select>
+                  </div>
+                  <div class="row mb-5 d-flex justify-content-around">
+                      <input
+                        type="range"
+                        min="10" max="500" value="33"
+                        class="form-control-range col-7"
+                        id="formControlRange"
+                        oninput="qsuare_label.innerHTML = formControlRange.value"
+                        >
+                      <label id="qsuare_label" class="col-3">33<span> КВ.М</span></label>
+                  </div>
+                  <div class="row mb-5 d-flex justify-content-around">
+                    <select class="
+                        col-5 custom-select bg-transparent
+                        border-left-0 border-top-0 border-right-0
+                        text-white" name="">
+                      <option class="text-dark" selected value="1">НОВОСТРОЙКА</option>
+                      <option class="text-dark" value="2">ВТОРИЧКА</option>
+                    </select>
+                    <select class="
+                        col-5 custom-select bg-transparent
+                        border-left-0 border-top-0 border-right-0
+                        text-white" name="">
+                      <option class="text-dark" selected value="1">КОСМЕТИЧ</option>
+                      <option class="text-dark" value="2">КАПИТАЛЬН</option>
+                      <option class="text-dark" value="3">ЕВРОРЕМОНТ</option>
+                    </select>
+                  </div>
+                  <div class="row mb-4 d-flex justify-content-around">
+                    <button class="btn col-5 btn_bg_blue" type="button" name="Calculate">РАССЧИТАТЬ</button>
+                    <a class="card-link col-5" href="#">ОСТАВИТЬ ЗАЯВКУ</a>
+                  </div>
+                  <div class="row mb-1 d-flex justify-content-between border-top pt-3">
+                    <h3 class="col-6">ИТОГО*:</h3>
+                    <div class="col-6">
+                      <h4 class="">от <big>2400</big> &#8381;/м<sup>2</sup></h3>
+                      <h4 class="">от <big>60</big> дней</h3>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-between">
+            <div class="headBottomText">Наши акции:</div>
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner carousel-field">
+                <div class="carousel-item">
+                  <h4>Натяжные потолки в подарок</h4>
+                </div>
+                <div class="carousel-item active">
+                  <h4>Скидка 10% при заказе от 120 кв.м.</h4>
+                </div>
+                <div class="carousel-item">
+                  <h4>В день рождения - сертификат на 15000р.</h4>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="fasle"></span>
+              </a>
+              <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="middle_wrapper pb-5">
+        <div class="container container_body mt-5">
+          <div class="row mb-3 d-flex">
+            <span class="span_services">УСЛУГИ</span>
+            <div class="card mt-5 p-0 text-center cardbody cardbodymr cardbody_bordered card_serv_1">
+              <div class="card-body p-0 mb-4 text-center">
+                <div class="img_overlay_blue body_card_overlay">
+                  <div class="text_overlay_blue body_card_overlay">
+                    <div class="text-white d-flex flex-column justify-content-center ">
+                      <h4 class="mt-3">Косметический ремонт</h4>
+                      <h4 class="mb-2 mt-3 pt-2 border-top">от <big>&nbsp;2200&nbsp;</big> &#8381;/м<sup>2</sup></h4>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text m-3 text-left m-1 mt-2">Косметический ремонт подразумевает визуальное обновление помещения: поклейку / переклейку обоев, укладку плитки / ламината, установку натяжных потолков и т.п. <br>Косметический ремонт оптимален для: <span class="text-light">предпродажной подготовки помещения; для помещения, которое будет сдано в аренду</span></p>
+                <input class="card-link text-center mt-mb-5 pb-2 pt-2 pl-5 pr-5 btn_bg_blue" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+            </div>
+
+            <div class="card mt-5 p-0 text-center cardbody cardbodymr cardbody_bordered">
+              <div class="card-body p-0 mb-4 text-center">
+                <div class="img_overlay_blue body_card_overlay">
+                  <div class="text_overlay_blue body_card_overlay">
+                    <div class="text-white d-flex flex-column justify-content-center ">
+                      <h4 class="mt-3">Капитальный ремонт</h4>
+                      <h4 class="mb-2 mt-3 pt-2 border-top">от <big>&nbsp;4500&nbsp;</big> &#8381;/м<sup>2</sup></h4>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text m-3 text-left m-1 mt-2">Капитальный ремонт - комплексный ремонт помещения, который включает как визуальное обновление помещения, так и более серьезные работы: замену коммуникаций, электрики,выравнивание стен. <br><span class="text-light">Данный вариант подходит для тех, кто хочет получить качестввенный ремонт на</span></p>
+                <input class="card-link text-center mt-mb-5 pb-2 pt-2 pl-5 pr-5 btn_bg_blue" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+            </div>
+
+            <div class="card mt-5 p-0 text-center cardbody cardbody_bordered">
+              <div class="card-body p-0 mb-4 text-center">
+                  <div class="img_overlay_blue body_card_overlay">
+                    <div class="text_overlay_blue body_card_overlay">
+                      <div class="text-white d-flex flex-column justify-content-center ">
+                        <h4 class="mt-3">Евроремонт</h4>
+                        <h4 class="mb-2 mt-3 pt-2 border-top">от <big>&nbsp;5100&nbsp;</big> &#8381;/м<sup>2</sup></h4>
+                      </div>
+                    </div>
+                  </div>
+                <p class="card-text m-3 text-left m-1 mt-2">Евроремонт - то же самое, что и капитальный, за исключением нескольких моментов. Ремонт квартиры выпоняется с типовыми европейскими решениями(к прмеру, с многоуровневыми потолками), с комбинированием цветов для придания <br><span class="text-light">помещению свежего и современного вида</span> </p>
+                <input class="card-link text-center mt-mb-5 pb-2 pt-2 pl-5 pr-5 btn_bg_blue" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row d-flex">
+
+            <div class="card mt-5 p-0 text-center cardbody cardbodymr cardbody_bordered">
+              <div class="card-body p-0 mb-4 text-center">
+                <div class="img_overlay_blue body_card_overlay">
+                  <div class="text_overlay_blue body_card_overlay">
+                    <div class="text-white d-flex flex-column justify-content-center ">
+                      <h4 class="mt-3">Дизайнерский ремонт</h4>
+                      <h4 class="mb-2 mt-3 pt-2 border-top">от <big>&nbsp;9500&nbsp;</big> &#8381;/м<sup>2</sup></h4>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text m-3 text-left m-1 mt-2">Дизайнерский ремонт подразумевает создание полностью индивидуальной атмосферы и решений.<br>Подходит для людей, которые хотят создать для себя максимально уютную атмосферу <br> <span class="text-light">Данный ремонт является дорогостоящим и подходит далеко не всем. Кроме того, </span></p>
+                <input class="card-link text-center mt-mb-5 pb-2 pt-2 pl-5 pr-5 btn_bg_blue" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+            </div>
+
+            <div class="card mt-5 p-0 text-center cardbody cardbodymr cardbody_bordered">
+              <div class="card-body p-0 mb-4 text-center">
+                <div class="img_overlay_gold body_card_overlay">
+                  <div class="text_overlay_gold body_card_overlay">
+                    <div class="text-dark d-flex flex-column justify-content-center ">
+                      <h4 class="mt-3"><b>Натяжные потолки</b></h4>
+                      <h4 class="mb-2 mt-3 pt-2 border-top"><b>от <big>&nbsp;2000&nbsp;</big> &#8381;/м<sup>2</sup></b></h4>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text text-left m-3 mt-2">Дизайнерский ремонт подразумевает создание полностью индивидуальной атмосферы и решений.<br>Подходит для людей, которые хотят создать для себя максимально уютную атмосферу <br> <span class="text-light">Данный ремонт является дорогостоящим и подходит далеко не всем. Кроме того, </span></p>
+                <input class="card-link text-center mt-mb-5 pb-2 pt-2 pl-5 pr-5 btn_bg_gold" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+            </div>
+
+            <div class="card mt-5 p-0 text-center cardbody cardbody_bordered">
+              <div class="card-body p-0 mb-4 text-center">
+                  <div class="img_overlay_gold body_card_overlay">
+                    <div class="text_overlay_gold body_card_overlay">
+                      <div class="text-dark d-flex flex-column justify-content-center ">
+                        <h4 class="mt-3"><b>Дизайн-проект</b></h4>
+                        <h4 class="mb-2 mt-3 pt-2 border-top"><b>от <big>&nbsp;1700&nbsp;</big> &#8381;/м<sup>2</sup></b></h4>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text m-3 text-left mt-2">Дизайнерский ремонт подразумевает создание полностью индивидуальной атмосферы и решений.<br>Подходит для людей, которые хотят создать для себя максимально уютную атмосферу <br> <span class="text-light">Данный ремонт является дорогостоящим и подходит далеко не всем. Кроме того, </span></p>
+                <input class="card-link text-center mt-mb-5 pb-2 pt-2 pl-5 pr-5 btn_bg_gold" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row d-flex">
+
+            <div class="card mt-5 p-0 text-center cardbody cardbodymr cardbody_bordered">
+              <div class="card-body p-0 mb-4 text-center">
+                <div class="img_overlay_prorab body_card_overlay_prorab">
+                  <div class="text_overlay_gold body_card_overlay_prorab">
+                    <div class="text-dark d-flex justify-content-around">
+                      <h4 class="mt-4"><b>Выезд прораба + смета</b></h4>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text text-left m-3 mt-2"> <b>Приедем к вам, сделаем замеры и</b> <br><span class="text-light">бесплатно составим смету</span></p>
+                <input class="card-link text-center mt-mb-5 pb-2 pt-2 pl-5 pr-5 btn_bg_gold" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+            </div>
+
+            <div class="card mt-5 p-0 text-center cardbody cardbodymr cardbody_bordered">
+              <div class="card-body p-0 mb-4 text-center">
+                <div class=" body_card_overlay_prorab mt-3">
+                  <div class=" body_card_overlay_prorab">
+                    <div class="text-dark d-flex justify-content-around ">
+                      <img src="imgs/trash.png" alt="trash_pic" class="">
+                      <h4 class="mt-4 mr-5"><b>Вывоз мусора</b></h4>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text m-3 text-left mt-2 font_little"> <b>Соберём и вывезем весь мусор, который</b> <br><span class="text-light">образовался в процессе ремонта</span></p>
+                <div class="gold_bordered m-3">
+                  <p class="font_little">Услуга оказывается бесплатно при заказе<br>комплексного ремонта помещения</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mt-5 p-0 text-center cardbody cardbody_bordered">
+              <div class="card-body p-0 mb-4 text-center">
+                  <div class=" body_card_overlay_prorab mt-3">
+                    <div class=" body_card_overlay_prorab">
+                      <div class="text-dark d-flex justify-content-around ">
+                        <img src="imgs/dust.png" alt="dust_pic" class="">
+                        <h4 class="mt-4 mr-5"><b>Уборка квартиры</b></h4>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text text-left m-3 mt-2 font_little"> <b>Соберём и вывезем весь мусор, который</b> <br><span class="text-light">образовался в процессе ремонта</span></p>
+                <div class="gold_bordered m-3">
+                  <p class="font_little">Услуга оказывается бесплатно при заказе<br>комплексного ремонта помещения</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="body_proj_subwrapper">
+
+            <div class="proj_line_1 row">
+              <span class="span_projects">ПРОЕКТЫ</span>
+              <div class="card cardbody_bordered card_proj card_proj_1 mr-3">
+                <img src="imgs/proj1.png" alt="proj1_pic" class="img_bordered_top">
+                <div class="row d-flex justify-content-center pt-3" >
+                  <div class="proj_content_left mr-2">
+                    <p class="mb-0"><small>СТОИМОСТЬ РАБОТ</small></p>
+                    <h4><b>1&nbsp;250&nbsp;000 </b>руб.</h4>
+                    <p class="mt-3 mb-0"><small>СТОИМОСТЬ МАТЕРИАЛОВ</small></p>
+                    <h4><b>450&nbsp;000</b> &#8381;</h4>
+                  </div>
+                  <div class="proj_between_line">
+                    <img src="imgs/vline.png" alt="proj1_pic" class="">
+                  </div>
+                  <div class="proj_content_right ml-2">
+                    <p class="mb-0"><small>ВИД РЕМОНТА</small></p>
+                    <h4>Евро</h4>
+                    <p class="mt-3 mb-0"><small>ПЛОЩАДЬ</small></p>
+                    <h4><b>70 м<sup>2</sup></b></h4>
+                  </div>
+                  <div class="ml-4 pt-5">
+                    <p class="mt-4 mb-0"><small>СРОК</small>></p>
+                    <h4><b>64 дня</b></h4>
+                  </div>
+                </div>
+                <input class="card-link text-center mb-4 pb-2 pt-2 pl-4 pr-4 btn_bg_blue proj_btn" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+              <div class="card cardbody_bordered card_proj ml-4">
+                <img src="imgs/proj2.png" alt="proj1_pic" class="img_bordered_top">
+                <div class="row d-flex justify-content-center pt-3" >
+                  <div class="proj_content_left mr-2">
+                    <p class="mb-0"><small>СТОИМОСТЬ РАБОТ</small></p>
+                    <h4><b>1&nbsp;250&nbsp;000 </b>руб.</h4>
+                    <p class="mt-3 mb-0"><small>СТОИМОСТЬ МАТЕРИАЛОВ</small></p>
+                    <h4><b>450&nbsp;000</b> &#8381;</h4>
+                  </div>
+                  <div class="proj_between_line">
+                    <img src="imgs/vline.png" alt="proj1_pic" class="">
+                  </div>
+                  <div class="proj_content_right ml-2">
+                    <p class="mb-0"><small>ВИД РЕМОНТА</small></p>
+                    <h4>Евро</h4>
+                    <p class="mt-3 mb-0"><small>ПЛОЩАДЬ</small></p>
+                    <h4><b>70 м<sup>2</sup></b></h4>
+                  </div>
+                  <div class="ml-4 pt-5">
+                    <p class="mt-4 mb-0"><small>СРОК</small>></p>
+                    <h4><b>64 дня</b></h4>
+                  </div>
+                </div>
+                <input class="card-link text-center mb-4 pb-2 pt-2 pl-4 pr-4 btn_bg_blue proj_btn" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+            </div>
+
+            <div class="proj_line_2 row mt-4">
+
+                <div class="card_back">
+                  <div class="mini_card_top ml-0 text-center">
+                    <h4 class="mt-3 mb-0">2-комнатная</h4>
+                    <h4 class="mb-0">квартира</h4>
+                    <h4>на ВО</h4>
+                  </div>
+                  <div class="mini_card_bottom ml-4 pl-3 mt-3 pt-3 text-white">
+                    <div class="row pt-1">
+                      <img src="imgs/sign1.png" alt="sign1">
+                      <h5>&nbsp;&nbsp;72 м<sup>2</sup></h5>
+                    </div>
+                    <div class="row pl-0">
+                      <img src="imgs/sign2.png" alt="sign1" class="ml-0 mr-1">
+                      <h5>&nbsp;521&nbsp;&nbsp;480 руб.</h5>
+                    </div>
+                  </div>
+                    <input class="btn_bg_gold_mini" type="button" name="" value="ПОДРОБНЕЕ" >
+                </div>
+              <div class="card_back">
+                <div class="mini_card_top ml-0 text-center">
+                  <h4 class="mt-3 mb-0">Студия</h4>
+                  <h4 class="mb-0">в Девяткино</h4>
+                  <h4>&nbsp;</h4>
+                </div>
+                <div class="mini_card_bottom ml-4 pl-3 mt-3 pt-3 text-white">
+                  <div class="row pt-1">
+                    <img src="imgs/sign1.png" alt="sign1">
+                    <h5>&nbsp;&nbsp;28 м<sup>2</sup></h5>
+                  </div>
+                  <div class="row pl-0">
+                    <img src="imgs/sign2.png" alt="sign1" class="ml-0 mr-1">
+                    <h5>&nbsp;160&nbsp;&nbsp;900 руб.</h5>
+                  </div>
+                </div>
+                  <input class="btn_bg_gold_mini" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+              <div class="card_back">
+                <div class="mini_card_top ml-0 text-center">
+                  <h4 class="mt-3 mb-0">1-комнатная</h4>
+                  <h4 class="mb-0">квартира</h4>
+                  <h4>в Кудрово</h4>
+                </div>
+                <div class="mini_card_bottom ml-4 pl-3 mt-3 pt-3">
+                  <div class="row pt-1">
+                    <img src="imgs/sign1.png" alt="sign1">
+                    <h5>&nbsp;&nbsp;40 м<sup>2</sup></h5>
+                  </div>
+                  <div class="row pl-0">
+                    <img src="imgs/sign2.png" alt="sign1" class="ml-0 mr-1">
+                    <h5>&nbsp;340&nbsp;&nbsp;250 руб.</h5>
+                  </div>
+                </div>
+                  <input class="btn_bg_gold_mini" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+              <div class="card_back">
+                <div class="mini_card_top ml-0 text-center">
+                  <h4 class="mt-3 mb-0">2-комнатная</h4>
+                  <h4 class="mb-0">квартира</h4>
+                  <h4>в Купчино</h4>
+                </div>
+                <div class="mini_card_bottom ml-4 pl-3 mt-3 pt-3 text-white">
+                  <div class="row pt-1">
+                    <img src="imgs/sign1.png" alt="sign1">
+                    <h5>&nbsp;&nbsp;62 м<sup>2</sup></h5>
+                  </div>
+                  <div class="row pl-0">
+                    <img src="imgs/sign2.png" alt="sign1" class="ml-0 mr-1">
+                    <h5>&nbsp;410&nbsp;&nbsp;200 руб.</h5>
+                  </div>
+                </div>
+                  <input class="btn_bg_gold_mini" type="button" name="" value="ПОДРОБНЕЕ" >
+              </div>
+            </div>
+          </div>
+          <div class="body_about_subwrapper">
+            <div class="row d-flex mb-3">
+              <span class="span_about">О НАС</span>
+              <div class="card card_about_1 pt-0 pb-3">
+                <div class="row d-flex justify-content-between ml-0 mr-0 pl-2 border-bottom">
+                  <div class="pl-2 pt-3">
+                    <h2 class="text_close"><b>Работаем</b></h2>
+                    <h2 class=""><b>официально</b></h2>
+                  </div>
+                  <p class="text_transparent mr-2"><b>.01</b></p>
+                </div>
+                <p class="pr-3 pt-2 text-right">Наша работа выстроена в соответствии с российским законодательством. Работаем полностью официально. Предоставляем чеки,накладные. Таким образом, вы можете быть уверены в прозрачности сделки</p>
+              </div>
+              <div class="card card_about pt-0 pb-3">
+                <div class="row d-flex justify-content-between ml-0 mr-0 pl-2 border-bottom">
+                  <div class="pl-2 pt-3">
+                    <h2 class="text_close"><b>Гарантия на</b></h2>
+                    <h2 class=""><b>работы 2 года</b></h2>
+                  </div>
+                  <p class="text_transparent mr-2"><b>.02</b></p>
+                </div>
+                <p class="pr-3 pt-2 text-right">Мы уверены в качестве нашей работы, поэ- тому предоставляем гарантию на работы 2 года. Если в процессе гарантийного срока будут обнаружены недостатки, допущенные по нашей вине - устраним за наш счет.</p>
+              </div>
+              <div class="card card_about pt-0 pb-3">
+                <div class="row d-flex justify-content-between ml-0 mr-0 pl-2 border-bottom">
+                  <div class="pl-2 pt-3">
+                    <h2 class="text_close"><b>Без</b></h2>
+                    <h2 class=""><b>предоплат</b></h2>
+                  </div>
+                  <p class="text_transparent mr-2"><b>.03</b></p>
+                </div>
+                <p class="pr-3 pt-2 text-right">Формат сотрудничества с нами не подразу-мевает предоплат. Мы выполняем работу, вы её принимаете и оплачиваете. И так на каждом этапе.</p>
+              </div>
+            </div>
+            <div class="row d-flex">
+              <div class="card card_about pt-0 pb-3">
+                <div class="row d-flex justify-content-between ml-0 mr-0 pl-2 border-bottom">
+                  <div class="pl-2 pt-3">
+                    <h2 class="text_close"><b>Соблюдение</b></h2>
+                    <h2 class=""><b>сроков</b></h2>
+                  </div>
+                  <p class="text_transparent mr-2"><b>.04</b></p>
+                </div>
+                <p class="pr-3 pt-2 text-right">Мы ответственно подходим к своей работе и при составлении договора, сметы чётко прописываем сроки, в течение которых будет выполнена работа. В случае выхода за обозначенные рамки, берем расходы на себя.</p>
+              </div>
+              <div class="card card_about pt-0 pb-3">
+                <div class="row d-flex justify-content-between ml-0 mr-0 pl-2 border-bottom">
+                  <div class="pl-2 pt-3">
+                    <h2 class="text_close"><b>Закупка</b></h2>
+                    <h2 class=""><b>Материалов</b></h2>
+                  </div>
+                  <p class="text_transparent mr-2"><b>.05</b></p>
+                </div>
+                <p class="pr-3 pt-2 text-right">Мы можем оказать вам помощь в закупке материалов, кроме того мы бесплатно до-ставим их на объект.</p>
+              </div>
+            </div>
+          </div>
+          <div class="body_partner_subwrapper">
+            <div class="row">
+              <span class="span_partn">ПАРТ.</span>
+              <div class="card petrovich pt-2 pl-1">
+                <div>
+                  <img src="imgs/petrovich2.png" alt="petrovich">
+                </div>
+                <div class="text-center mt-3">
+                  <h6 class="mb-3">Строительные материалы</h6>
+                  <h5 class="mb-5"><b>Строительный торговый дом "Петрович"</b></h5>
+                  <input class="pb-2 pt-2 pr-5 btn_bg_blue_mini" type="button" name="" value="ПЕРЕЙТИ НА САЙТ" >
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="footer text-white pt-3">
+        <div class="container container_footer">
+          <div class="row pb-3">
+            <div class="image-parent mr-0 pl-0">
+              <img src="imgs/yacht2.png" alt="" class="logo img-fluid mt-4">
+            </div>
+            <div class="ml-3 mt-4 mr-0 footer_middle">
+              <h6 class="mb-0">Ремонт квартир в viceDefaultCity</h6>
+              <h6 class="">от компании "Мичман Проект"</h6>
+            </div>
+            <div class="border-left mt-3 ml-0 pl-3 mr-0">
+              <h5>info@michman.project.ru</h5>
+              <h5 class="pl-1">+7 <big>(999)</big> 921-21-21</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  </body>
+</html>
