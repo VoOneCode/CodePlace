@@ -72,13 +72,6 @@
 
 
 
-    //in articles.php после container mt-5
-      <div class="row">
-        
-    //конец
-
-
-
 
       <?php
         echo date('Y-m-d H:i:s');
@@ -89,3 +82,4 @@
          <input type="text" placeholder="password" name="password">
          <input type="submit" name="" value="send">
        </form>
+       //конец
