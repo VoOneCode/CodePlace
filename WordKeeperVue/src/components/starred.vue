@@ -1,28 +1,84 @@
 <template>
 	<div class="starredWrapper">
-		<p v-for="item in starreds" :key="item">
-			{{item}}</p>
+		<div class="starredWrapper__row">
+			<div class="starredWrapper__row--search">
+				<input 
+					type="text"
+					v-on:input='stword = $event.target.value'
+                	v-bind:value="stword"
+				>
+			</div>
+			<div class="starredWrapper__row--results">
+				<p v-for="item in starreds" :key="item">
+					{{item}}
+				</p>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
 
 	export default {
+		data: () => ({
+			stword: 'starred'			
+		}),
 		computed: {
 			starreds(){
-			return window.localStorage('my');
-		}
+				if(localStorage['localStarred']){					
+					return JSON.parse(localStorage['localStarred']);
+				}else{
+					localStorage.setItem('localStarred', JSON.stringify([]));					
+					return JSON.parse(localStorage['localStarred']);					
+				}
+			}
 		}
 	}
-	console.log(window.localStorage('my'));
 	
 	
 </script>
 
-<style>
+<style lang='scss'>
 	.starredWrapper{
 		background: #F8F4F4;
-		text-align: left;
-		padding-left: 10rem;
+		padding: 1%;
+		&__row{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			&--search{
+				width: 25%;
+				padding: 1%;
+			}
+			&--results{
+				width: 75%;
+				background: white;
+				text-align: left;
+				display: flex;
+				flex-direction: column;
+			}
+		}
 	}
+	@media all and (max-width: 600px){
+		.starredWrapper{
+		background: #F8F4F4;
+		padding: 1%;
+		&__row{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			&--search{
+				width: 25%;
+				padding: 1%;
+			}
+			&--results{
+				width: 100%;
+				background: white;
+				text-align: left;
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+}
 </style>

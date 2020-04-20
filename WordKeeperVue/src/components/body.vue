@@ -29,18 +29,26 @@
 	export default {
 		data: () => ({
 			showInfo: false,
-			word: 'rich',
+			word: 'example',
 			translate: [],
 			errorsTr: [],
 			definitions: [],
 			firstDefinition: [],
 			partOfSpeech: [],
-			errorsOwl: []
+			errorsOwl: []			
 		}),
 		computed:{
 			result(){
 				//localStorage.clear();
 				return this.word + " " + this.partOfSpeech + " " + this.firstDefinition; 
+			},
+			starred(){
+				if(localStorage['localStarred']){					
+					return JSON.parse(localStorage['localStarred']);
+				}else{
+					localStorage.setItem('localStarred', JSON.stringify([]));					
+					return JSON.parse(localStorage['localStarred']);					
+				}
 			}
 		},
         methods:{
@@ -81,14 +89,16 @@
 				.catch((err)=>{
 				this.showInfo = !this.showInfo
 				this.errorsOwl.push(err)
+				localStorage.setItem('errstore', JSON.stringify(this.errorsOwl));
 				this.definition = []
 				})
 			},
 	/* *** Here we save the word to starred*** */			
 			saveWord(){
-				if (window.localStorage) {
-					console.log('allright local');
-					window.localStorage.setItem('my'[this.word], this.result);
+				if (localStorage) {
+					this.starred.push(this.result);
+					localStorage.setItem('localStarred', JSON.stringify(this.starred));
+					//window.localStorage.setItem([this.word], this.result);
 				} else {
 					console.log('Your browser doesn support sessionStorage');
 				}
@@ -119,6 +129,40 @@
 				flex-direction: column;
 				 #checkbox {
 					display: none;
+				}				
+				#checkbox:checked + label:before {
+					font-size: 1.5rem;
+					content: "★";
+					color: #6EC0FB;
+				}				
+				#checkbox + label:before {
+					font-size: 1.5rem;
+					content: "★";
+					color: wheat;
+				}
+			}
+		}
+	}
+	@media all and (max-width: 600px){
+		.bodyWrapper{
+		background: #F8F4F4;
+		padding: 1%;
+		&__row{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			&--search{
+				width: 25%;
+				padding: 1%;
+			}
+			&--results{
+				width: 100%;
+				background: white;
+				text-align: left;
+				display: flex;
+				flex-direction: column;
+				 #checkbox {
+					display: none;
 				}
 				
 				#checkbox:checked + label:before {
@@ -135,4 +179,5 @@
 			}
 		}
 	}
+}
 </style>

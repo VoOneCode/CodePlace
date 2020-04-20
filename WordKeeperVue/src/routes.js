@@ -14,7 +14,7 @@ const routes = [
 	},
 	{
 		name: 'WordKeeper',	
-		path: '/wordKeeper',
+		path: '/wordkeeper',
 		component: Body
 	},
 	{

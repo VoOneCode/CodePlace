@@ -4,8 +4,6 @@
     <transition name="slide" mode="out-in">
           <router-view></router-view>
     </transition>
-    <router-link :to="{ name: 'Starred'}">To Your Starred Words</router-link>
-    <router-link :to="{ name: 'WordKeeper'}">To Word Keeper</router-link>
     <app-footer></app-footer>
   </div>
 </template>
