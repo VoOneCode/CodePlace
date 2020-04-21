@@ -8,18 +8,23 @@
                 	v-bind:value="word"
 					@input='findWord'>
 			</div>
-			<div class="bodyWrapper__row--results">
-				<p v-if='showInfo'>
-					<b>{{word}}</b> - {{partOfSpeech}} - {{firstDefinition}}					
+			<div v-if='showSearchResult' class="bodyWrapper__row--results">
+				<p>
+					<!--b>{{word}}</!--b> - {{firstPartOfSpeech}} - {{firstDefinition}}	-->				
+					
+				</p>
+				<div v-for="(item,key) in museResponse" :key="key">
+					{{item['word']}} - {{item['defs'][0]}}
 					<input 
 						type="checkbox" 
-						id="checkbox"
-						@change="saveWord"
+						:id="key"
+						class="checkbox"
+						@input="saveWord(key)"
 						>
 						<label 
-						for="checkbox"						
+						:for="key"						
 						></label>
-				</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -28,23 +33,25 @@
 <script>
 	export default {
 		data: () => ({
-			showInfo: false,
-			word: 'example',
+			showSearchResult: true,
+			word: 'exam',
 			translate: [],
 			errorsTr: [],
 			definitions: [],
 			firstDefinition: [],
-			partOfSpeech: [],
-			errorsOwl: []			
+			firstPartOfSpeech: [],
+			errorsOwl: [],
+			museResponse: []
 		}),
 		created(){
 			//localStorage.clear();
+			
 		},
 		computed:{
-			result(){				
-				//return this.word + " " + this.partOfSpeech + " " + this.firstDefinition; 
-				return [this.word, this.partOfSpeech + " " + this.firstDefinition]; 
-
+			result(){			
+				// it was deprecated since new logic	
+				//return this.word + " " + this.firstPartOfSpeech + " " + this.firstDefinition; 
+				//return [this.word, this.firstPartOfSpeech + " " + this.firstDefinition]; 
 			},
 			starred(){
 				if(localStorage['localStarred']){					
@@ -57,7 +64,7 @@
 		},
         methods:{
 			findWord(){
-				this.showInfo = !this.showInfo
+				this.showSearchResult = !this.showSearchResult;
 	/* *** Here we find a translate for the word *** */	
 				const axios = require("axios");			
 				axios({
@@ -81,26 +88,41 @@
 					this.errorsTr.push(e)
 					})
 	/* *** Here we find a part of speech and definition for the word *** */	
-			var Owlbot = require('owlbot-js');  
-			var client = Owlbot('7148efa434d781513aa0fcc01ed0a74c9c82b3c7');
-			
-			client.define(this.word)
-			.then((resp)=>{
-				this.definitions = resp.definitions
-				this.firstDefinition = resp.definitions[0]['definition']
-				this.partOfSpeech = resp.definitions[0]['type']
-				})
-				.catch((err)=>{
-				this.showInfo = !this.showInfo
-				this.errorsOwl.push(err)
-				localStorage.setItem('errstore', JSON.stringify(this.errorsOwl));
-				this.definition = []
-				})
+				/* ** code below no need anymore since new logic ** */	
+				var Owlbot = require('owlbot-js');  
+				var client = Owlbot('7148efa434d781513aa0fcc01ed0a74c9c82b3c7');
+				
+				client.define(this.word)
+				.then((resp)=>{
+					this.definitions = resp.definitions
+					this.firstDefinition = resp.definitions[0]['definition']
+					this.firstPartOfSpeech = resp.definitions[0]['type']
+					})
+					.catch((err)=>{
+					this.errorsOwl.push(err)
+					localStorage.setItem('errstore', JSON.stringify(this.errorsOwl));
+					this.definition = []
+					});
+				/* ** code above no need anymore since new logic ** */	
+				const datamuse = require('datamuse'); 
+				datamuse.request('/words?sp='+this.word+'*&max=10&md=dr&ipa=1')
+				.then((response) => {
+				let preResult = [];
+				for (let i in response){
+					if(response[i]['defs']){
+						//console.log('preResult filtering...');
+						preResult.push(response[i])	
+					}
+				}
+				this.museResponse = preResult;			
+				this.showSearchResult = !this.showSearchResult
+				});
 			},
 	/* *** Here we save the word to starred*** */			
-			saveWord(){
-				if (localStorage) {
-					this.starred.push(this.result);
+			saveWord(key){
+				//console.log('entering save word func');				
+				if (localStorage) {					
+					this.starred.push(this.museResponse[key]);					
 					localStorage.setItem('localStarred', JSON.stringify(this.starred));
 					//window.localStorage.setItem([this.word], this.result);
 				} else {
@@ -131,15 +153,15 @@
 				text-align: left;
 				display: flex;
 				flex-direction: column;
-				 #checkbox {
+				.checkbox {
 					display: none;
 				}				
-				#checkbox:checked + label:before {
+				.checkbox:checked + label:before {
 					font-size: 1.5rem;
 					content: "★";
 					color: #6EC0FB;
 				}				
-				#checkbox + label:before {
+				.checkbox + label:before {
 					font-size: 1.5rem;
 					content: "★";
 					color: wheat;
@@ -165,17 +187,17 @@
 				text-align: left;
 				display: flex;
 				flex-direction: column;
-				 #checkbox {
+				.checkbox {
 					display: none;
 				}
 				
-				#checkbox:checked + label:before {
+				.checkbox:checked + label:before {
 					font-size: 1.5rem;
 					content: "★";
 					color: #6EC0FB;
 				}
 				
-				#checkbox + label:before {
+				.checkbox + label:before {
 					font-size: 1.5rem;
 					content: "★";
 					color: wheat;

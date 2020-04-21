@@ -1,5 +1,6 @@
 <template>
 	<div class="starredWrapper">
+		<h1>Starred Words</h1>
 		<div class="starredWrapper__row">
 			<div class="starredWrapper__row--search">
 				<input 
@@ -8,11 +9,9 @@
                 	v-bind:value="stword"
 				>
 			</div>
-			<div v-if='showresult' class="starredWrapper__row--results">
+			<div v-if='showStarredResult' class="starredWrapper__row--results">
 				<div v-for="(item,key) in starreds" :key="key">
-					{{item[0]}}
-					{{item[1]}}
-					{{key}}
+					{{item['word']}} - {{item['defs'][0]}}
 					<input 
 						type="checkbox" 
 						:id="key"
@@ -34,7 +33,7 @@
 	export default {
 		data: () => ({
 			stword: 'starred'	,
-			showresult: true		
+			showStarredResult: true		
 		}),
 		computed: {
 			starreds(){
@@ -48,13 +47,10 @@
 		},
 		methods: {
 			eraseWord(key){
-				this.showresult = !this.showresult;
-				console.log(key);
-				console.log(this.starreds);
+				this.showStarredResult = !this.showStarredResult;
 				this.starreds.splice(key, 1);
-				console.log(this.starreds);
 				localStorage.setItem('localStarred', JSON.stringify(this.starreds));
-				this.showresult = !this.showresult;
+				this.showStarredResult = !this.showStarredResult;
 			}
 		}
 	}
