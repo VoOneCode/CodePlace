@@ -37,10 +37,14 @@
 			partOfSpeech: [],
 			errorsOwl: []			
 		}),
+		created(){
+			//localStorage.clear();
+		},
 		computed:{
-			result(){
-				//localStorage.clear();
-				return this.word + " " + this.partOfSpeech + " " + this.firstDefinition; 
+			result(){				
+				//return this.word + " " + this.partOfSpeech + " " + this.firstDefinition; 
+				return [this.word, this.partOfSpeech + " " + this.firstDefinition]; 
+
 			},
 			starred(){
 				if(localStorage['localStarred']){					

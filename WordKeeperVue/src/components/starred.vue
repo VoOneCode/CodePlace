@@ -8,10 +8,22 @@
                 	v-bind:value="stword"
 				>
 			</div>
-			<div class="starredWrapper__row--results">
-				<p v-for="item in starreds" :key="item">
-					{{item}}
-				</p>
+			<div v-if='showresult' class="starredWrapper__row--results">
+				<div v-for="(item,key) in starreds" :key="key">
+					{{item[0]}}
+					{{item[1]}}
+					{{key}}
+					<input 
+						type="checkbox" 
+						:id="key"
+						class="checkbox"
+						checked="checked"
+						@input="eraseWord(key)"
+						>
+						<label 
+						:for="key"						
+						></label>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -21,7 +33,8 @@
 
 	export default {
 		data: () => ({
-			stword: 'starred'			
+			stword: 'starred'	,
+			showresult: true		
 		}),
 		computed: {
 			starreds(){
@@ -31,6 +44,17 @@
 					localStorage.setItem('localStarred', JSON.stringify([]));					
 					return JSON.parse(localStorage['localStarred']);					
 				}
+			}
+		},
+		methods: {
+			eraseWord(key){
+				this.showresult = !this.showresult;
+				console.log(key);
+				console.log(this.starreds);
+				this.starreds.splice(key, 1);
+				console.log(this.starreds);
+				localStorage.setItem('localStarred', JSON.stringify(this.starreds));
+				this.showresult = !this.showresult;
 			}
 		}
 	}
@@ -56,6 +80,19 @@
 				text-align: left;
 				display: flex;
 				flex-direction: column;
+				 .checkbox {
+					display: none;
+				}				
+				.checkbox:checked + label:before {
+					font-size: 1.5rem;
+					content: "★";
+					color: #6EC0FB;
+				}				
+				.checkbox + label:before {
+					font-size: 1.5rem;
+					content: "★";
+					color: wheat;
+				}
 			}
 		}
 	}
@@ -77,6 +114,19 @@
 				text-align: left;
 				display: flex;
 				flex-direction: column;
+				 .checkbox {
+					display: none;
+				}				
+				.checkbox:checked + label:before {
+					font-size: 1.5rem;
+					content: "★";
+					color: #6EC0FB;
+				}				
+				.checkbox + label:before {
+					font-size: 1.5rem;
+					content: "★";
+					color: wheat;
+				}
 			}
 		}
 	}
