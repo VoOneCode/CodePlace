@@ -9,17 +9,13 @@
 					@input='findWord'>
 			</div>
 			<div v-if='showSearchResult' class="bodyWrapper__row--results">
-				<p>
-					<!--b>{{word}}</!--b> - {{firstPartOfSpeech}} - {{firstDefinition}}	-->				
-					
-				</p>
 				<div v-for="(item,key) in museResponse" :key="key">
-					{{item['word']}} - {{item['defs'][0]}}
+					{{item.word}} - {{item['defs'][0]}}
 					<input 
 						type="checkbox" 
 						:id="key"
 						class="checkbox"
-						@input="saveWord(key)"
+						@input='saveWord(key)'
 						>
 						<label 
 						:for="key"						
@@ -31,10 +27,11 @@
 </template>
 
 <script>
+
 	export default {
 		data: () => ({
-			showSearchResult: true,
-			word: 'exam',
+			showSearchResult: false,
+			word: 'sword',
 			translate: [],
 			errorsTr: [],
 			definitions: [],
@@ -46,6 +43,8 @@
 		created(){
 			//localStorage.clear();
 			
+			
+			
 		},
 		computed:{
 			result(){			
@@ -55,19 +54,21 @@
 			},
 			starred(){
 				if(localStorage['localStarred']){					
-					return JSON.parse(localStorage['localStarred']);
+					return JSON.parse(localStorage.getItem('localStarred'));
 				}else{
-					localStorage.setItem('localStarred', JSON.stringify([]));					
-					return JSON.parse(localStorage['localStarred']);					
+					localStorage.setItem('localStarred', JSON.stringify([]));		
+					return JSON.parse(localStorage.getItem('localStarred'));
+					
+										
 				}
 			}
 		},
         methods:{
 			findWord(){
-				this.showSearchResult = !this.showSearchResult;
+				this.showSearchResult = false;
 	/* *** Here we find a translate for the word *** */	
-				const axios = require("axios");			
-				axios({
+				//const axios = require("axios");			
+				/*axios({
 					"method":"GET",
 					"url":"https://systran-systran-platform-for-language-processing-v1.p.rapidapi.com/translation/text/translate",
 					"headers":{
@@ -87,50 +88,49 @@
 					.catch((e)=>{
 					this.errorsTr.push(e)
 					})
-	/* *** Here we find a part of speech and definition for the word *** */	
-				/* ** code below no need anymore since new logic ** */	
-				var Owlbot = require('owlbot-js');  
-				var client = Owlbot('7148efa434d781513aa0fcc01ed0a74c9c82b3c7');
-				
-				client.define(this.word)
-				.then((resp)=>{
-					this.definitions = resp.definitions
-					this.firstDefinition = resp.definitions[0]['definition']
-					this.firstPartOfSpeech = resp.definitions[0]['type']
-					})
-					.catch((err)=>{
-					this.errorsOwl.push(err)
-					localStorage.setItem('errstore', JSON.stringify(this.errorsOwl));
-					this.definition = []
-					});
-				/* ** code above no need anymore since new logic ** */	
-				const datamuse = require('datamuse'); 
-				datamuse.request('/words?sp='+this.word+'*&max=10&md=dr&ipa=1')
-				.then((response) => {
+	/* *** Here we find a word,part of speech and definition for the word *** */
+				const datamuse = require('datamuse');
+				datamuse.request('words?sp='+this.word+'*&max=10&md=dr&ipa=1')
+				.then((response) => {										
 				let preResult = [];
 				for (let i in response){
 					if(response[i]['defs']){
-						//console.log('preResult filtering...');
-						preResult.push(response[i])	
-					}
-				}
-				this.museResponse = preResult;			
-				this.showSearchResult = !this.showSearchResult
-				});
+						let testString = response[i]['defs'][0];
+						//console.log(testString);						
+						//console.log(testString.slice(testString.indexOf('	'), testString.length));
+						/*for(let i in response[i]['defs']){
+
+						}*/
+						
+						preResult.push(response[i]);
+					};
+				};
+				this.museResponse = preResult;
+				this.museResponse.sort(function(a, b){					
+					var nameA=a.word.toLowerCase(), nameB=b.word.toLowerCase()
+					if (nameA < nameB)
+						{return -1}
+					if (nameA > nameB)
+						{return 1}
+					return 0 
+					});							
+				})
+				/*.catch((e)=>{
+					alert(e);
+					this.errorsTr.push(e)
+					});*/
+				this.showSearchResult = true;
 			},
 	/* *** Here we save the word to starred*** */			
 			saveWord(key){
-				//console.log('entering save word func');				
-				if (localStorage) {					
-					this.starred.push(this.museResponse[key]);					
-					localStorage.setItem('localStarred', JSON.stringify(this.starred));
-					//window.localStorage.setItem([this.word], this.result);
-				} else {
-					console.log('Your browser doesn support sessionStorage');
+				if (localStorage){	
+					this.starred.push(this.museResponse[parseInt(key)]);					
+					localStorage.setItem('localStarred', JSON.stringify(this.starred))
+				}else{
+					alert('Your browser doesn support localStorage');
 				}
 			}
-		}
-		
+		}		
 	}	
 
 </script>
