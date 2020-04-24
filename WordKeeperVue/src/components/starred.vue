@@ -1,11 +1,7 @@
 <template>
 	<div class="starredWrapper">
-		<h1>Starred Words</h1>
-		<div v-for="item in myWords" :key="item" class="myWords">
-				<p>
-					
-				</p>
-			</div>
+		<h1>Starred Words</h1>	
+
 		<input
 			type="button"
 			v-bind:value="eraseAllText"
@@ -17,13 +13,11 @@
 					type="text"
 					v-on:input='stword = $event.target.value'
                 	v-bind:value="stword"
-					@input='findInStarred'
 				>
 			</div>
-			
-			<div v-if='starreds' class="starredWrapper__row--results">
-				your starreds
-				<div v-for="(item,key) in starreds" :key="key">
+
+			<div v-if='myWords' class="starredWrapper__row--results">
+				<div v-for="(item,key) in myWords" :key="key">
 					{{item['word']}} - {{item['defs'][0]}}
 					<input 
 						type="checkbox" 
@@ -46,15 +40,15 @@
 	export default {
 		data: () => ({
 			eraseAllText: "set settings for default",
-			stword: 's'	,
+			stword: ''	,
 			showStarredResult: true,
-			calcStarreds: true	
+			calcStarreds: true,
+			selectedStarred: []
 		}),
 		computed: {
 			starreds(){
 				if(this.calcStarreds){
 					if(localStorage['localStarred']){
-						//console.log(JSON.parse(localStorage.getItem('localStarred')));
 						return JSON.parse(localStorage.getItem('localStarred'));
 					}else{
 						//alert('smth else...');					
@@ -62,16 +56,17 @@
 				}
 			},
 			myWords(){
-				let allStWords = [];
-				for (let item in this.starreds){
-					console.log(item);					
-					allStWords.push(this.starreds[item]['word']);
+				let selectedStarred = [];
+				for (let item in this.starreds){				
+					let ind = this.starreds[item]['word'].indexOf(this.stword);
+					if(ind>=0){
+						selectedStarred.push(this.starreds[item])
+					}
 				}
-				return allStWords;
-			}
+				return selectedStarred;
+			},			
 		},
 		methods: {
-			findInStarred(){},
 			eraseWord(key){
 				this.showStarredResult = !this.showStarredResult;
 				this.starreds.splice(key, 1);

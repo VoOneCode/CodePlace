@@ -105,6 +105,8 @@
 						preResult.push(response[i]);
 					};
 				};
+				console.log(preResult);
+				
 				this.museResponse = preResult;
 				this.museResponse.sort(function(a, b){					
 					var nameA=a.word.toLowerCase(), nameB=b.word.toLowerCase()
