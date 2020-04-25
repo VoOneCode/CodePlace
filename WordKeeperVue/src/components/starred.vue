@@ -1,12 +1,13 @@
 <template>
 	<div class="starredWrapper">
-		<h1>Starred Words</h1>	
-
-		<input
-			type="button"
-			v-bind:value="eraseAllText"
-			@click="eraseLocal"
-			>
+		<div class="starredWrapper__row">
+			<h1>Starred Words</h1>	
+			<input
+				type="button"
+				v-bind:value="eraseAllText"
+				@click="eraseLocal"
+				>
+		</div>
 		<div class="starredWrapper__row">
 			<div class="starredWrapper__row--search">
 				<input 
@@ -17,17 +18,19 @@
 			</div>
 			<div v-if='myWords' class="starredWrapper__row--results">
 				<div v-for="(item,key) in myWords" :key="key">
-					{{item['word']}} - {{item['defs'][0]}}
+					<p>
+						{{item['word']}} - {{item['defs'][0]}}					
 					<input 
 						type="checkbox" 
 						:id="key"
 						class="checkbox"
 						checked="checked"
-						@input="eraseWord(key)"
+						@click="eraseWord(key)"
 						>
 						<label 
 						:for="key"						
 						></label>
+					</p>	
 				</div>
 			</div>
 		</div>
@@ -66,11 +69,11 @@
 			},			
 		},
 		methods: {
-			eraseWord(key){
-				this.showStarredResult = !this.showStarredResult;
+			eraseWord(key){				
 				this.starreds.splice(key, 1);
 				localStorage.setItem('localStarred', JSON.stringify(this.starreds));
-				this.showStarredResult = !this.showStarredResult;
+				this.calcStarreds = false;
+				this.calcStarreds = true;
 			},
 			eraseLocal(){
 				if(localStorage['localStarred']){
@@ -78,7 +81,7 @@
 					localStorage.removeItem('localStarred');
 					this.calcStarreds = true;
 				}else{
-					alert('no localStarred yet');					
+					alert('no starred words yet');					
 				}
 			}
 		}
@@ -98,17 +101,21 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
+			margin-bottom: 1rem;
 			&--search{
 				width: 25%;
 				padding: 1%;
 			}
 			&--results{
 				width: 75%;
-				background: white;
+				background: #F8F4F4;
 				text-align: left;
 				display: flex;
 				flex-direction: column;
-				 .checkbox {
+				p{
+					background: white;
+				}
+				.checkbox {
 					display: none;
 				}				
 				.checkbox:checked + label:before {
@@ -138,10 +145,13 @@
 			}
 			&--results{
 				width: 100%;
-				background: white;
+				background: #F8F4F4;
 				text-align: left;
 				display: flex;
 				flex-direction: column;
+				p{
+					background: white;
+				}
 				 .checkbox {
 					display: none;
 				}				
