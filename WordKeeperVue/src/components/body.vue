@@ -2,13 +2,15 @@
 	<div class="bodyWrapper">
 		<div class="bodyWrapper__row">
 			<div class="bodyWrapper__row--search">
+				
 				<input 
 					type="text"
 					v-on:input='word = $event.target.value'
                 	v-bind:value="word"
 					@input='findWord'>
 			</div>
-			<div v-if='showSearchResult' class="bodyWrapper__row--results">
+			<!--p>SORRY TESTING now</!--p><br-->
+			<div v-if='showSearchResult' class="bodyWrapper__row--results">				
 				<div v-for="(item,key) in museResponse" :key="key">
 					{{item.word}} - {{item['defs'][0]}}
 					<input 
@@ -31,7 +33,7 @@
 	export default {
 		data: () => ({
 			showSearchResult: false,
-			word: 'sword',
+			word: 'ax',
 			translate: [],
 			errorsTr: [],
 			definitions: [],
@@ -40,87 +42,50 @@
 			errorsOwl: [],
 			museResponse: []
 		}),
-		created(){
-			//localStorage.clear();
-			
-			
-			
-		},
 		computed:{
-			result(){			
-				// it was deprecated since new logic	
-				//return this.word + " " + this.firstPartOfSpeech + " " + this.firstDefinition; 
-				//return [this.word, this.firstPartOfSpeech + " " + this.firstDefinition]; 
-			},
 			starred(){
 				if(localStorage['localStarred']){					
 					return JSON.parse(localStorage.getItem('localStarred'));
 				}else{
 					localStorage.setItem('localStarred', JSON.stringify([]));		
-					return JSON.parse(localStorage.getItem('localStarred'));
-					
-										
+					return JSON.parse(localStorage.getItem('localStarred'));		
 				}
 			}
 		},
         methods:{
 			findWord(){
-				this.showSearchResult = false;
-	/* *** Here we find a translate for the word *** */	
-				//const axios = require("axios");			
-				/*axios({
-					"method":"GET",
-					"url":"https://systran-systran-platform-for-language-processing-v1.p.rapidapi.com/translation/text/translate",
-					"headers":{
-					"content-type":"application/octet-stream",
-					"x-rapidapi-host":"systran-systran-platform-for-language-processing-v1.p.rapidapi.com",
-					"x-rapidapi-key":"8351a57d7cmshc6c7b161ab31c4cp14f3b8jsn167bf24a1045"
-					},"params":{
-					"source":"en",
-					"target":"ru",
-					"input": this.word,
-					"withAnnotations": true,
-					}
-					})
-					.then((response)=>{
-					this.translate = response.data.outputs[0]['output']
-					})
-					.catch((e)=>{
-					this.errorsTr.push(e)
-					})
+				this.showSearchResult = false;	
 	/* *** Here we find a word,part of speech and definition for the word *** */
-				const datamuse = require('datamuse');
-				datamuse.request('words?sp='+this.word+'*&max=10&md=dr&ipa=1')
-				.then((response) => {										
-				let preResult = [];
-				for (let i in response){
-					if(response[i]['defs']){
-						let testString = response[i]['defs'][0];
-						//console.log(testString);						
-						//console.log(testString.slice(testString.indexOf('	'), testString.length));
-						/*for(let i in response[i]['defs']){
-
-						}*/
-						
-						preResult.push(response[i]);
-					};
-				};
-				console.log(preResult);
-				
-				this.museResponse = preResult;
-				this.museResponse.sort(function(a, b){					
-					var nameA=a.word.toLowerCase(), nameB=b.word.toLowerCase()
-					if (nameA < nameB)
-						{return -1}
-					if (nameA > nameB)
-						{return 1}
-					return 0 
-					});							
-				})
-				/*.catch((e)=>{
-					alert(e);
+				const axios = require("axios");	
+				axios.get(`https://api.datamuse.com/words?sp=${encodeURIComponent(this.word)}?*&max=10&md=dr&ipa=1`)
+				.then((json) => {
+					let requestResult = json.data;														
+					let preResult = [];
+					for (let i in requestResult){
+						if(requestResult[i]['defs']){
+							/*** finding part of speech *** */
+							//let testString = requestResult[i]['defs'][0];
+							//console.log(testString);						
+							//console.log(testString.slice(testString.indexOf('	'), testString.length));
+							/*for(let i in requestResult[i]['defs']){
+							}*/
+							/*** finding part of speech *** */							
+							preResult.push(requestResult[i]);
+						};
+					};					
+					this.museResponse = preResult;
+					this.museResponse.sort(function(a, b){					
+						var nameA=a.word.toLowerCase(), nameB=b.word.toLowerCase()
+						if (nameA < nameB)
+							{return -1}
+						if (nameA > nameB)
+							{return 1}
+						return 0 
+						});							
+					})
+				.catch((e)=>{
 					this.errorsTr.push(e)
-					});*/
+					});	
 				this.showSearchResult = true;
 			},
 	/* *** Here we save the word to starred*** */			

@@ -15,7 +15,6 @@
                 	v-bind:value="stword"
 				>
 			</div>
-
 			<div v-if='myWords' class="starredWrapper__row--results">
 				<div v-for="(item,key) in myWords" :key="key">
 					{{item['word']}} - {{item['defs'][0]}}
