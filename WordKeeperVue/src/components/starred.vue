@@ -46,24 +46,35 @@
 						adjective
 				</label>
 			</div>
+			
 			<draggable v-if='myWords' class="starredWrapper__row--results" handle=".fa-bars">				
 				<div v-for="(item,key) in myWords" :key="key">						
 					<div class="resWrapper">
-					<p @click='fullText'>
-						<i class="fa fa-bars"></i>
-						{{item['word']}} - {{item['defs'][0]}}	
-					</p>				
-				<input 
-					type="checkbox" 
-					:id="key"
-					class="checkbox"
-					checked="checked"
-					@click="eraseWord(key)"
-					>
-					<label 
-					:for="key"						
-					></label>
-				</div>
+						<p @click='fullText(key)'>
+							<i class="fa fa-bars"></i>
+							{{item['word']}} - {{item['defs'][0]}}	
+						</p>									
+						<input 
+							type="checkbox" 
+							:id="key"
+							class="checkbox"
+							checked="checked"
+							@click="eraseWord(key)"
+							>
+							<label 
+							:for="key"						
+							></label>
+					</div>
+					<div v-if="show == key" class="fullResWrapper">
+						<div v-for="(def,key) in item.defs" :key="key">
+							<p>
+								{{def}}
+							</p>
+						</div>
+						<p>
+							transcription: {{item.tags[1].slice(item.tags[1].indexOf(':')+1)}}
+						</p>	
+					</div>	
 				</div>				
 			</draggable>
 		</div>
@@ -80,7 +91,8 @@
 			eraseAllText: "delete all starred words!",
 			stword: ''	,
 			calcStarreds: true,
-			checkedPart: ''
+			checkedPart: '',
+			show: 'no'
 		}),
 		computed: {
 			starreds(){
@@ -113,8 +125,8 @@
 			},			
 		},
 		methods: {
-			fullText(){
-				alert('its full text')
+			fullText(key){						
+				this.show = this.show == key ? 'no' : key;
 			},
 			filterPart(part){
 				if(this.checkedPart == part.id){
@@ -186,6 +198,11 @@
 						margin-right: 1rem;
 					}
 				}
+				.fullResWrapper{
+					background: white;
+					padding: 5px;
+					margin-bottom: 2%;
+				}
 				.checkbox {
 					display: none;
 				}				
@@ -233,6 +250,11 @@
 					i{
 						margin-right: 1rem;
 					}
+				}
+				.fullResWrapper{
+					background: white;
+					padding: 5px;
+					margin-bottom: 2%;
 				}
 				 .checkbox {
 					display: none;
