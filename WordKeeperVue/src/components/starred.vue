@@ -15,6 +15,36 @@
 					v-on:input='stword = $event.target.value'
                 	v-bind:value="stword"
 				>
+				<label>
+					<input 
+						type="checkbox" 
+						name="noun" 
+						id="noun"
+						class="checkboxPart"
+						@click='filterPart($event.target)'
+						>
+						noun
+				</label>
+				<label>
+					<input 
+						type="checkbox" 
+						name="verb" 
+						id="verb"
+						class="checkboxPart"
+						@click='filterPart($event.target)'
+						>
+						verb
+				</label>
+				<label>
+					<input 
+						type="checkbox" 
+						name="adjective" 
+						id="adjective"
+						class="checkboxPart"
+						@click='filterPart($event.target)'
+						>
+						adjective
+				</label>
 			</div>
 			<div v-if='myWords' class="starredWrapper__row--results">
 				<div v-for="(item,key) in myWords" :key="key">
@@ -41,11 +71,10 @@
 
 	export default {
 		data: () => ({
-			eraseAllText: "set settings for default",
+			eraseAllText: "delete all starred words!",
 			stword: ''	,
-			showStarredResult: true,
 			calcStarreds: true,
-			selectedStarred: []
+			checkedPart: ''
 		}),
 		computed: {
 			starreds(){
@@ -59,22 +88,40 @@
 			},
 			myWords(){
 				let selectedStarred = [];
-				/*** add this.stword tolowercase  	DONE */
-				/*** tune indexOf for first letters	DONE */
 				for (let item in this.starreds){				
 					let ind = this.starreds[item]['word'].indexOf(this.stword.toLowerCase());
 					if(ind==0){
-						console.log(ind);
-						
-						selectedStarred.push(this.starreds[item])
+						let currentPart = this.starreds[item]['defs'][0].slice(0, this.starreds[item]['defs'][0].indexOf('	'));								
+						if(this.checkedPart != ''){
+							switch(currentPart) {
+								case this.checkedPart:
+									selectedStarred.push(this.starreds[item]);
+									break;
+							}
+						}else{
+							selectedStarred.push(this.starreds[item]);
+						}
 					}
-				}
+				}				
 				return selectedStarred;
 			},			
 		},
 		methods: {
-			eraseWord(key){				
-				this.starreds.splice(key, 1);
+			filterPart(part){
+				if(this.checkedPart == part.id){
+					this.checkedPart = ''
+				}else{
+					this.checkedPart = part.id;
+				}
+				let checkboxes = document.getElementsByClassName('checkboxPart');
+				[...checkboxes].forEach(box => {
+					box.checked = box === part ? box.checked : false;				
+					});
+			},
+			eraseWord(key){			
+				let victim = this.myWords[key]['word'];
+				let positionToRemove = this.starreds.findIndex(element => element.word == victim);		
+				this.starreds.splice(positionToRemove, 1);
 				localStorage.setItem('localStarred', JSON.stringify(this.starreds));
 				this.calcStarreds = false;
 				this.calcStarreds = true;
@@ -107,6 +154,8 @@
 			justify-content: space-between;
 			margin-bottom: 1rem;
 			&--search{
+				display: flex;
+				flex-direction: column;
 				width: 25%;
 				padding: 1%;
 			}
@@ -148,6 +197,8 @@
 			flex-direction: column;
 			justify-content: space-between;
 			&--search{
+				display: flex;
+				flex-direction: column;
 				width: 25%;
 				padding: 1%;
 			}
@@ -159,6 +210,10 @@
 				flex-direction: column;
 				p{
 					background: white;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					padding: 0 1% 0 1%;
 				}
 				 .checkbox {
 					display: none;
