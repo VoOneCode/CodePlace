@@ -59,9 +59,13 @@
 			},
 			myWords(){
 				let selectedStarred = [];
+				/*** add this.stword tolowercase  	DONE */
+				/*** tune indexOf for first letters	DONE */
 				for (let item in this.starreds){				
-					let ind = this.starreds[item]['word'].indexOf(this.stword);
-					if(ind>=0){
+					let ind = this.starreds[item]['word'].indexOf(this.stword.toLowerCase());
+					if(ind==0){
+						console.log(ind);
+						
 						selectedStarred.push(this.starreds[item])
 					}
 				}
@@ -114,6 +118,10 @@
 				flex-direction: column;
 				p{
 					background: white;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					padding: 0 1% 0 1%;
 				}
 				.checkbox {
 					display: none;

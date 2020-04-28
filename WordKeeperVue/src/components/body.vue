@@ -10,7 +10,7 @@
 					@input='findWord'>
 			</div>
 			<!--p>SORRY TESTING now</!--p><br-->
-			<div v-if='showSearchResult' class="bodyWrapper__row--results">				
+			<div v-if='showSearchResult' class="bodyWrapper__row--results">			
 				<div v-for="(item,key) in museResponse" :key="key">
 					<p>
 						{{item.word}} - {{item['defs'][0]}}
@@ -35,7 +35,7 @@
 	export default {
 		data: () => ({
 			showSearchResult: false,
-			word: 'axe',
+			word: 'word',
 			translate: [],
 			errorsTr: [],
 			definitions: [],
@@ -55,23 +55,38 @@
 			}
 		},
         methods:{
-			findWord(){
-				this.showSearchResult = false;	
+			findWord(){			
+				this.showSearchResult = false;
 	/* *** Here we find a word,part of speech and definition for the word *** */
 				const axios = require("axios");	
 				axios.get(`https://api.datamuse.com/words?sp=${encodeURIComponent(this.word)}?*&max=10&md=dr&ipa=1`)
 					.then((json) => {
-						let requestResult = json.data;														
+						let requestResult = json.data;																		
 						let preResult = [];
 						for (let i in requestResult){
 							if(requestResult[i]['defs']){
-								/*** finding part of speech *** */
-								//let testString = requestResult[i]['defs'][0];
-								//console.log(testString);						
-								//console.log(testString.slice(testString.indexOf('	'), testString.length));
-								/*for(let i in requestResult[i]['defs']){
-								}*/
-								/*** finding part of speech *** */							
+								for(let d in requestResult[i]['defs']){
+									/*** finding part of speech *** */
+									let enterString = requestResult[i]['defs'][d];
+									let part = enterString.slice(0, enterString.indexOf('	')+1);
+									switch(part) {
+										case 'n	':
+											requestResult[i]['defs'][d] = requestResult[i]['defs'][d].replace('n	', 'noun	');
+											break;
+										case 'v	':
+											requestResult[i]['defs'][d] = requestResult[i]['defs'][d].replace('v	', 'verb	');
+											break;
+										case 'adj	':
+											requestResult[i]['defs'][d] = requestResult[i]['defs'][d].replace('adj	', 'adjective	');
+											break;
+										case 'adv	':
+											requestResult[i]['defs'][d] = requestResult[i]['defs'][d].replace('adv	', 'adverb	');
+											break;
+										default:
+											//console.log('no such value in results '+part);
+											break
+									}
+								}						
 								preResult.push(requestResult[i]);
 							};
 						};					
@@ -83,7 +98,8 @@
 							if (nameA > nameB)
 								{return 1}
 							return 0 
-							});							
+							});	
+						this.showSearchResult = true;							
 						})
 					.catch((e)=>{
 						this.errorsTr.push(e)
@@ -110,7 +126,7 @@
 					.catch((e)=>{
 					this.errorsTr.push(e)
 					})*/
-				this.showSearchResult = true;
+				//this.showSearchResult = true;
 			},
 	/* *** Here we save the word to starred*** */			
 			saveWord(key){
@@ -146,6 +162,10 @@
 				flex-direction: column;
 				p{
 					background: white;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					padding: 0 1% 0 1%;
 				}
 				.checkbox {
 					display: none;
