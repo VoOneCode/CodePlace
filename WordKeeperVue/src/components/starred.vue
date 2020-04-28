@@ -46,30 +46,36 @@
 						adjective
 				</label>
 			</div>
-			<div v-if='myWords' class="starredWrapper__row--results">
-				<div v-for="(item,key) in myWords" :key="key">
-					<p>
-						{{item['word']}} - {{item['defs'][0]}}					
-					<input 
-						type="checkbox" 
-						:id="key"
-						class="checkbox"
-						checked="checked"
-						@click="eraseWord(key)"
-						>
-						<label 
-						:for="key"						
-						></label>
-					</p>	
+			<draggable v-if='myWords' class="starredWrapper__row--results" handle=".fa-bars">				
+				<div v-for="(item,key) in myWords" :key="key">						
+					<div class="resWrapper">
+					<p @click='fullText'>
+						<i class="fa fa-bars"></i>
+						{{item['word']}} - {{item['defs'][0]}}	
+					</p>				
+				<input 
+					type="checkbox" 
+					:id="key"
+					class="checkbox"
+					checked="checked"
+					@click="eraseWord(key)"
+					>
+					<label 
+					:for="key"						
+					></label>
 				</div>
-			</div>
+				</div>				
+			</draggable>
 		</div>
 	</div>
 </template>
 
 <script>
-
+	import draggable from 'vuedraggable';
 	export default {
+		components: {
+            draggable,
+        },
 		data: () => ({
 			eraseAllText: "delete all starred words!",
 			stword: ''	,
@@ -107,6 +113,9 @@
 			},			
 		},
 		methods: {
+			fullText(){
+				alert('its full text')
+			},
 			filterPart(part){
 				if(this.checkedPart == part.id){
 					this.checkedPart = ''
@@ -165,12 +174,17 @@
 				text-align: left;
 				display: flex;
 				flex-direction: column;
-				p{
+				.resWrapper{
 					background: white;
 					display: flex;
 					flex-direction: row;
 					justify-content: space-between;
 					padding: 0 1% 0 1%;
+					margin-bottom: 2%;
+					border-radius: 5px;
+					i{
+						margin-right: 1rem;
+					}
 				}
 				.checkbox {
 					display: none;
@@ -208,12 +222,17 @@
 				text-align: left;
 				display: flex;
 				flex-direction: column;
-				p{
+				.resWrapper{
 					background: white;
 					display: flex;
 					flex-direction: row;
 					justify-content: space-between;
 					padding: 0 1% 0 1%;
+					margin-bottom: 2%;
+					border-radius: 5px;
+					i{
+						margin-right: 1rem;
+					}
 				}
 				 .checkbox {
 					display: none;
