@@ -15,36 +15,36 @@
 					v-on:input='stword = $event.target.value'
                 	v-bind:value="stword"
 				>
-				<label>
-					<input 
-						type="checkbox" 
-						name="noun" 
-						id="noun"
-						class="checkboxPart"
-						@click='filterPart($event.target)'
-						>
-						noun
-				</label>
-				<label>
-					<input 
-						type="checkbox" 
-						name="verb" 
-						id="verb"
-						class="checkboxPart"
-						@click='filterPart($event.target)'
-						>
-						verb
-				</label>
-				<label>
-					<input 
-						type="checkbox" 
-						name="adjective" 
-						id="adjective"
-						class="checkboxPart"
-						@click='filterPart($event.target)'
-						>
-						adjective
-				</label>
+				<input 
+							type="checkbox" 
+							name="noun" 
+							id="noun"
+							class="checkboxPart"
+							@click='filterPart($event.target)'
+							>
+							<label 
+							for="noun"						
+							>noun</label>
+				<input 
+							type="checkbox" 
+							name="verb" 
+							id="verb"
+							class="checkboxPart"
+							@click='filterPart($event.target)'
+							>
+							<label 
+							for="verb"						
+							>verb</label>
+				<input 
+							type="checkbox" 
+							name="adjective" 
+							id="adjective"
+							class="checkboxPart"
+							@click='filterPart($event.target)'
+							>
+							<label 
+							for="adjective"					
+							>adjective</label>
 			</div>
 			
 			<draggable v-if='myWords' class="starredWrapper__row--results" handle=".fa-bars">				
@@ -180,7 +180,20 @@
 				width: 25%;
 				padding: 1%;
 				background: #EFEFEF;
-				margin-right: 2rem;
+				margin-right: 2rem;		
+				.checkboxPart {
+					display: none;
+				}				
+				.checkboxPart:checked + label:before {
+					font-size: 1.5rem;
+					content: "■ ";
+					color: #6EC0FB;
+				}				
+				.checkboxPart + label:before {
+					font-size: 1.5rem;
+					content: "■ ";
+					color: white;
+				}
 			}
 			&--results{
 				width: 75%;
