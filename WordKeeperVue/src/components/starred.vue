@@ -1,13 +1,13 @@
 <template>
 	<div class="starredWrapper">
-		<div class="starredWrapper__row">
+		<!--div class="starredWrapper__row">
 			<h1>Starred Words</h1>	
 			<input
 				type="button"
 				v-bind:value="eraseAllText"
 				@click="eraseLocal"
 				>
-		</div>
+		</div-->
 		<div class="starredWrapper__row">
 			<div class="starredWrapper__row--search">
 				<input 
@@ -179,6 +179,8 @@
 				flex-direction: column;
 				width: 25%;
 				padding: 1%;
+				background: #EFEFEF;
+				margin-right: 2rem;
 			}
 			&--results{
 				width: 75%;

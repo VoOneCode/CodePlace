@@ -1,15 +1,13 @@
 <template>
 	<div class="bodyWrapper">
 		<div class="bodyWrapper__row">
-			<div class="bodyWrapper__row--search">
-				
+			<div class="bodyWrapper__row--search">				
 				<input 
 					type="text"
 					v-on:input='word = $event.target.value'
                 	v-bind:value="word"
 					@input='findWord'>
 			</div>
-			<!--p>SORRY TESTING now</!--p><br-->
 			<div v-if='showSearchResult' class="bodyWrapper__row--results">			
 				<div v-for="(item,key) in museResponse" :key="key">
 					<p>
@@ -153,6 +151,8 @@
 			&--search{
 				width: 25%;
 				padding: 1%;
+				background: #EFEFEF;
+				margin-right: 2rem;
 			}
 			&--results{
 				width: 75%;
@@ -177,8 +177,8 @@
 				}				
 				.checkbox + label:before {
 					font-size: 1.5rem;
-					content: "★";
-					color: wheat;
+					content: "☆";
+					color: #6EC0FB;
 				}
 			}
 		}
@@ -220,8 +220,8 @@
 				
 				.checkbox + label:before {
 					font-size: 1.5rem;
-					content: "★";
-					color: wheat;
+					content: "☆";
+					color: #6EC0FB;
 				}
 			}
 		}

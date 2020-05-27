@@ -16,6 +16,7 @@
 	}
 	.headerWrapper{
 		background: #6EC0FB;
+		border-radius: 5px;
 		&__row{
 			padding: 0 1%;
 			display: flex;
