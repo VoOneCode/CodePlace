@@ -1,20 +1,23 @@
 <template>
 	<div class="starredWrapper">
-		<!--div class="starredWrapper__row">
+		<div class="starredWrapper__row">
 			<h1>Starred Words</h1>	
-			<input
+			<!--input
 				type="button"
 				v-bind:value="eraseAllText"
 				@click="eraseLocal"
-				>
-		</div-->
+				-->
+		</div>
 		<div class="starredWrapper__row">
 			<div class="starredWrapper__row--search">
-				<input 
-					type="text"
-					v-on:input='stword = $event.target.value'
-                	v-bind:value="stword"
-				>
+				<label class="search-field">
+					<i>&#9906;</i>
+					<input 
+						type="text"
+						v-on:input='stword = $event.target.value'
+	                	v-bind:value="stword"
+					>
+				</label>
 				<input 
 							type="checkbox" 
 							name="noun" 
@@ -52,7 +55,8 @@
 					<div class="resWrapper">
 						<p @click='fullText(key)'>
 							<i class="fa fa-bars"></i>
-							{{item['word']}} - {{item['defs'][0]}}	
+							<b>{{item['word']}}</b>&nbsp;&nbsp;&nbsp;
+								{{item['defs'][0]}}
 						</p>									
 						<input 
 							type="checkbox" 
@@ -180,7 +184,23 @@
 				width: 25%;
 				padding: 1%;
 				background: #EFEFEF;
-				margin-right: 2rem;		
+				margin-right: 2rem;	
+				.search-field{
+					position: relative;
+					i{
+						position: absolute;
+						right: 10px;
+						top: 15%;
+						height: 100%;
+						transform: rotate(-55deg);
+					}
+					input{
+						box-sizing: border-box;
+						padding: 2%;
+						width: 100%;
+						outline: 1px solid #6EC0FB;
+					}
+				}
 				.checkboxPart {
 					display: none;
 				}				
@@ -245,8 +265,38 @@
 			&--search{
 				display: flex;
 				flex-direction: column;
-				width: 25%;
+				width: 95%;
+				margin: 0 auto;
 				padding: 1%;
+				.search-field{
+					position: relative;
+					i{
+						position: absolute;
+						top: 15%;
+						height: 100%;
+						right: 10px;
+						transform: rotate(-55deg);
+					}
+					input{
+						box-sizing: border-box;
+						padding: 2%;
+						width: 100%;
+						outline: 1px solid #6EC0FB;
+					}
+				}
+				.checkboxPart {
+					display: none;
+				}				
+				.checkboxPart:checked + label:before {
+					font-size: 1.5rem;
+					content: "■ ";
+					color: #6EC0FB;
+				}				
+				.checkboxPart + label:before {
+					font-size: 1.5rem;
+					content: "■ ";
+					color: white;
+				}
 			}
 			&--results{
 				width: 100%;

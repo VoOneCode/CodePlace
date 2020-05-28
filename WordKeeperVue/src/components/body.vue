@@ -1,17 +1,22 @@
 <template>
 	<div class="bodyWrapper">
 		<div class="bodyWrapper__row">
-			<div class="bodyWrapper__row--search">				
-				<input 
-					type="text"
-					v-on:input='word = $event.target.value'
-                	v-bind:value="word"
-					@input='findWord'>
+			<div class="bodyWrapper__row--search">	
+				<label class="search-field">
+					<i>&#9906;</i>			
+					<input 
+						type="text"
+						v-on:input='word = $event.target.value'
+						v-bind:value="word"
+						@input='findWord'>
+				</label>		
 			</div>
 			<div v-if='showSearchResult' class="bodyWrapper__row--results">			
 				<div v-for="(item,key) in museResponse" :key="key">
-					<p>
-						{{item.word}} - {{item['defs'][0]}}
+					<div>
+						<p>
+							<b>{{item.word}}</b>&nbsp;&nbsp;&nbsp; {{item['defs'][0]}}
+						</p>
 						<input 
 							type="checkbox" 
 							:id="key"
@@ -21,7 +26,7 @@
 							<label 
 							:for="key"						
 							></label>
-					</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -153,6 +158,21 @@
 				padding: 1%;
 				background: #EFEFEF;
 				margin-right: 2rem;
+				.search-field{
+					position: relative;
+					i{
+						position: absolute;
+						right: 10px;
+						top: 1px;
+						transform: rotate(-55deg);
+					}
+					input{
+						box-sizing: border-box;
+						padding: 2%;
+						width: 100%;
+						outline: 1px solid #6EC0FB;						
+					}
+				}
 			}
 			&--results{
 				width: 75%;
@@ -160,7 +180,8 @@
 				text-align: left;
 				display: flex;
 				flex-direction: column;
-				p{
+				div{
+					width: 100%;
 					background: white;
 					display: flex;
 					flex-direction: row;
@@ -192,8 +213,23 @@
 			flex-direction: column;
 			justify-content: space-between;
 			&--search{
-				width: 25%;
+				width: 45%;
 				padding: 1%;
+				.search-field{
+					position: relative;
+					i{
+						position: absolute;
+						right: 10px;
+						top: 1px;
+						transform: rotate(-55deg);
+					}
+					input{
+						box-sizing: border-box;
+						padding: 2%;
+						width: 100%;
+						outline: 1px solid #6EC0FB;
+					}
+				}
 			}
 			&--results{
 				width: 100%;
@@ -201,7 +237,8 @@
 				text-align: left;
 				display: flex;
 				flex-direction: column;
-				p{
+				div{
+					width: 100%;
 					background: white;
 					display: flex;
 					flex-direction: row;
