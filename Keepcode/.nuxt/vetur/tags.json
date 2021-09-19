@@ -1,11 +1,11 @@
 {
-  "Body": {
-    "description": "Auto imported from components/Body.vue"
-  },
   "Footer": {
     "description": "Auto imported from components/Footer.vue"
   },
   "Header": {
     "description": "Auto imported from components/Header.vue"
+  },
+  "NotAuth": {
+    "description": "Auto imported from components/NotAuth.vue"
   }
 }

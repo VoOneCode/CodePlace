@@ -1,6 +1,6 @@
-export { default as Body } from '../..\\components\\Body.vue'
 export { default as Footer } from '../..\\components\\Footer.vue'
 export { default as Header } from '../..\\components\\Header.vue'
+export { default as NotAuth } from '../..\\components\\NotAuth.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

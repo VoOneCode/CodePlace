@@ -30,6 +30,6 @@ export const actions = {
   },
 
   setToken({ commit }, { token }) {
-    commit("SET_TOKEN", 'token')
+    commit("SET_TOKEN", token)
   }
 }

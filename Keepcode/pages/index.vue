@@ -1,9 +1,13 @@
 <template>
   <div class="container">
     <div 
-      class="main_wrapper">      
-      <Body />      
-    </div>
+      class="main_wrapper"> 
+      <div v-if="$store.state.auth.token"><span>Athenticated</span></div> 
+      <div 
+        v-else> 
+        <NotAuth />       
+    </div>   
+      </div>
   </div>
 </template>
 
