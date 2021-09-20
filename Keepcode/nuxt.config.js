@@ -1,4 +1,5 @@
 export default {
+  target: 'static',
   head: {
     title: 't_nuxt',
     meta: [
@@ -30,5 +31,8 @@ export default {
     '@nuxtjs/axios',
   ],
   build: {
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL  
   }
 }

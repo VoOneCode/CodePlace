@@ -1,14 +1,14 @@
 <template>
   <div class="body text-center">    
     <h1 class="body_title">
-      t_nuxt
+      t_nuxt {{BASE_URL}}
     </h1>
     <div class="body_wrapper">
       <span class="body_greetings mb-5">{{greetings}}</span>
       <div v-if="!submitted" class="body_form mt-5">
         <div class="body_form__wrapper text-center">
 
-          <form @submit.stop.prevent="formSend()">
+          <form>
             <div class="form_input mb-4 mx-5">
               <input
                 class=""
@@ -84,6 +84,7 @@
                   :disabled="$v.$invalid"
                   type="submit"
                   class="btn btn-primary"
+                  @click="formSend"
                   >
                   Отправить
                 </button>
@@ -117,6 +118,7 @@ export default {
       file: null,
       submitted: false,
       submit_status: false,
+      BASE_URL: process.env.BASE_URL,
     }     
   },
   validations: {
@@ -167,7 +169,7 @@ export default {
           this.submit_status = true;
 
           // throw data to backend. Backend will sent the message to email
-          /* await this.$axios.$post("api/post_guest_message", formData)
+          /* await this.$axios.$post(this.BASE_URL+'api/post_guest_message', formData)
           .then(response=>{
             if (!response.error){
               this.submitted = true;
