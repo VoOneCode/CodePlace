@@ -20,7 +20,7 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "sass": "^1.41.0",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
